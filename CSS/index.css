@@ -1,0 +1,17 @@
+.container-preto{
+    background-color: black;
+    height: 300px;
+}
+
+.navegacao{
+
+    /* text-align: center; */
+    justify-items: center;
+    justify-content: basel;
+}
+
+.navegacao a{
+    color: #f40;
+    text-decoration: none;
+}
+
