@@ -2,13 +2,21 @@
     background-color: black;
     height: 300px;
 }
+.container-preto img{
+    border: 50%;
+    height: 200px;
+}
 
 .navegacao{
+    display: flex;
+    justify-content: center;
+    /* align-items: ; */
 
     /* text-align: center; */
-    justify-items: center;
-    justify-content: basel;
+    /* justify-items: center;
+    justify-content:; */
 }
+
 
 .navegacao a{
     color: #f40;
