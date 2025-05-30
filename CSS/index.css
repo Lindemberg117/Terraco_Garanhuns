@@ -1,9 +1,15 @@
+header{
+    width: 100vw;
+    display: flex; 
+}
+
 .container-preto{
+    flex-grow: 1;
     background-color: black;
     height: 300px;
 }
 .container-preto img{
-    border: 50%;
+    border-radius: 50%;
     height: 200px;
 }
 
@@ -15,6 +21,12 @@
     /* text-align: center; */
     /* justify-items: center;
     justify-content:; */
+}
+#comida{
+    width: 100vw;
+}
+#terraco{
+    border-radius: 50%;
 }
 
 
