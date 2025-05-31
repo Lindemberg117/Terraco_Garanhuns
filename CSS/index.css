@@ -11,6 +11,7 @@ header{
 .container-preto img{
     border-radius: 50%;
     height: 200px;
+    width: 200px;
 }
 
 .navegacao{
@@ -26,7 +27,7 @@ header{
     width: 100vw;
 }
 #terraco{
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 
 
