@@ -35,3 +35,34 @@ header{
     text-decoration: none;
 }
 
+.destaque {
+    font-style: italic;
+    margin: 2rem auto;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+.servicos {
+    background-color: #f8f8f8;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+.servicos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.servicos li {
+    margin: 0.8rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #222;
+    color: #fff;
+    font-size: 0.9rem;
+}
