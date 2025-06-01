@@ -1,40 +1,18 @@
-header{
-    width: 100vw;
-    display: flex; 
-}
-
-.container-preto{
-    flex-grow: 1;
-    background-color: black;
-    height: 300px;
-}
-.container-preto img{
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
-}
-
-.navegacao{
-    display: flex;
-    justify-content: center;
-    /* align-items: ; */
-
-    /* text-align: center; */
-    /* justify-items: center;
-    justify-content:; */
-}
 #comida{
     width: 100vw;
 }
-#terraco{
+/* #terraco{ */
     /* border-radius: 50%; */
-}
+/* } */
 
 
-.navegacao a{
-    color: #f40;
-    text-decoration: none;
+
+
+main{
+    background-color: #000000;
+    color: #f8f8f8;
 }
+
 
 .destaque {
     font-style: italic;
@@ -44,7 +22,7 @@ header{
 }
 
 .servicos {
-    background-color: #f8f8f8;
+    background-color: #ed0000;
     padding: 1.5rem;
     border-radius: 8px;
     margin: 2rem auto;
@@ -58,12 +36,4 @@ header{
 
 .servicos li {
     margin: 0.8rem 0;
-}
-
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #222;
-    color: #fff;
-    font-size: 0.9rem;
 }
