@@ -22,16 +22,16 @@ main{
 }
 
 .servicos {
-    background-color: #ed0000;
+    background-color: #cfcfcf;
     padding: 1.5rem;
     border-radius: 8px;
-    margin: 2rem auto;
+    margin: auto;
     max-width: 500px;
 }
 
 .servicos ul {
     list-style-type: none;
-    padding: 0;
+    padding: 0px;
 }
 
 .servicos li {

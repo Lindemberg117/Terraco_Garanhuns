@@ -12,8 +12,10 @@
     align-items: center;
     justify-content: space-evenly;
 
+    /* margin: 2rem auto; */
+
 }
 
-/* .nossa-historia h1{
-    
-} */
+.nossa-historia h1{
+    /* margin: 2rem auto; */
+}
