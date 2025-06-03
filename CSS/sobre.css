@@ -9,13 +9,39 @@
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items:center;
     justify-content: space-evenly;
 
     /* margin: 2rem auto; */
 
 }
-
-.nossa-historia h1{
-    /* margin: 2rem auto; */
+.informacoes{
+    display: flex;
+    flex-direction: row-reverse;
+    
+    /* align-content: center;
+    justify-content: space-evenly; */
 }
+.informacoes img{
+    width: 400px;
+    height: 400px;
+    border-radius: 10%;
+    margin: 10px;
+}
+
+/* .nossa-historia h1{
+    margin: 2rem auto;
+    
+} */
+.nossa-historia p{
+    text-align: center;
+}
+.texto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+}
+/* .texto p{
+    padding: 10px;
+} */
