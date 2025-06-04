@@ -1,4 +1,4 @@
-main{
+main {
     /* display: flex; */
     /* flex-direction: column; */
     /* align-items: center; */
@@ -10,13 +10,14 @@ main{
     /* margin-top: 30px; */
     max-width: 100vw;
     /* max-height: 100vw; */
-    
 
-    
+
+
 
     /* padding: 0 20px; */
 }
-.comidas{
+
+.comidas {
     background-color: gray;
 
     display: flex;
@@ -27,9 +28,10 @@ main{
     /* max-height: 700px; */
     max-width: 100vw;
 
-    
+
 }
-.comida{
+
+.comida {
 
     padding: 10px;
     margin: 20px;
@@ -47,11 +49,11 @@ main{
 
 }
 
-.comida img{
+.comida img {
     height: 300px;
     width: 300px;
 }
 
-.comida div h2{
+.comida div h2 {
     font-size: 20px;
 }

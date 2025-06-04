@@ -1,14 +1,16 @@
-#comida{
+#comida {
     width: 100vw;
+    height: 500px;
 }
+
 /* #terraco{ */
-    /* border-radius: 50%; */
+/* border-radius: 50%; */
 /* } */
 
 
 
 
-main{
+main {
     background-color: #000000;
     color: #f8f8f8;
     padding-bottom: 4rem;
@@ -16,7 +18,7 @@ main{
 
 
 .destaque {
-    font-style: italic;
+    /* font-style: italic; */
     margin: 2rem auto;
     max-width: 600px;
     line-height: 1.8;
