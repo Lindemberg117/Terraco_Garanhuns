@@ -23,9 +23,8 @@ main {
 }
 
 .servicos {
-    /* background-color: #cfcfcf; */
+    background-color: #cfcfcf;
     padding: 1.5rem;
-    border: 2px solid #FF4400;
     border-radius: 8px;
     margin: auto;
     max-width: 500px;
