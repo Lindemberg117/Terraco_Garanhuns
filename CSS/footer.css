@@ -6,14 +6,16 @@ footer {
     font-size: 0.9rem;
 }
 
-footer a{
+footer a {
     text-decoration: none;
     color: black;
 }
 
 .links {
-    list-style: none; /* Remove os marcadores (pontos) */
-    padding: 0; /* Remove o padding padrão */
-    margin: 0; /* Remove a margem padrão (opcional) */
+    list-style: none;
+    /* Remove os marcadores (pontos) */
+    padding: 0;
+    /* Remove o padding padrão */
+    margin: 0;
+    /* Remove a margem padrão (opcional) */
 }
-

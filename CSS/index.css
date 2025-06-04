@@ -25,8 +25,9 @@ main {
 }
 
 .servicos {
-    background-color: #a1a1a1;
+    /* background-color: #a1a1a1; */
     padding: 1.5rem;
+    border: 2px solid #a1a1a1;
     border-radius: 8px;
     margin: auto;
     max-width: 500px;

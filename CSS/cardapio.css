@@ -18,7 +18,7 @@ main {
 }
 
 .comidas {
-    background-color: gray;
+    background-color: #000;
 
     display: flex;
     align-items: center;
@@ -33,10 +33,11 @@ main {
 
 .comida {
 
-    padding: 10px;
-    margin: 20px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
 
-    max-height: 600px;
+    height: 400px;
     max-width: 400px;
 
     display: flex;
@@ -49,11 +50,21 @@ main {
 
 }
 
+
+
 .comida img {
     height: 300px;
     width: 300px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .comida div h2 {
     font-size: 20px;
+}
+
+.comida p {
+    max-width: 300px;
+    margin: 0 auto;
+    font-size: 16px;
 }
