@@ -1,30 +1,37 @@
 .main-contatos {
-    text-align: center;
-    min-height: 60vh;
-    padding: 40px 20px;
-    background-color: #000;
+  padding: 40px 20px;
+  background-color: #000;
+  color: aliceblue;
+  font-size: 20px;
+
+  display: flex;
+  justify-content: space-around;
 }
-
-
-.contato-emoji {
-    font-size: 5rem;
-    margin-bottom: 20px;
+.contat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
-
-.social-icons h2 {
-    color: aliceblue;
-    font-size: 50px;
-    margin-bottom: 300px;
+.contat img {
+  width: 30px;
 }
-
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.social-icons img {
+  width: 30px;
+}
 .social-icons a {
-    display: inline-block;
-    margin: 0 15px;
-    font-size: 2.5rem;
-    color: #333;
-    transition: transform 0.3s;
+  display: inline-block;
+  margin: 0 15px;
+  color: aliceblue;
+  transition: transform 0.3s;
 }
 
 .social-icons a:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
