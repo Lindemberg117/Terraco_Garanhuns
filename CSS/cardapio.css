@@ -1,27 +1,38 @@
 main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
 
     /* flex-wrap: wrap; */
 
-    gap: 20px;
+    /* gap: 20px; */
 
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    max-width: 100vw;
+    /* max-height: 100vw; */
+    
+
     
 
     /* padding: 0 20px; */
 }
-/* .comidas{
+.comidas{
+    background-color: gray;
+
     display: flex;
-    flex-direction:column;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    /* max-height: 700px; */
+    max-width: 100vw;
 
     
-} */
+}
 .comida{
 
     padding: 10px;
+    margin: 20px;
 
     max-height: 600px;
     max-width: 400px;
@@ -39,4 +50,8 @@ main{
 .comida img{
     height: 300px;
     width: 300px;
+}
+
+.comida div h2{
+    font-size: 20px;
 }
