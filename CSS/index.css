@@ -1,5 +1,6 @@
 #comida {
     width: 100vw;
+    height: 500px;
 }
 
 /* #terraco{ */
@@ -17,7 +18,7 @@ main {
 
 
 .destaque {
-    font-style: italic;
+    /* font-style: italic; */
     margin: 2rem auto;
     max-width: 600px;
     line-height: 1.8;
