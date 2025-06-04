@@ -11,6 +11,7 @@
 main{
     background-color: #000000;
     color: #f8f8f8;
+    padding-bottom: 4rem;
 }
 
 
@@ -22,7 +23,7 @@ main{
 }
 
 .servicos {
-    background-color: #cfcfcf;
+    background-color: #a1a1a1;
     padding: 1.5rem;
     border-radius: 8px;
     margin: auto;
