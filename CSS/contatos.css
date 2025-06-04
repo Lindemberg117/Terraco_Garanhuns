@@ -2,7 +2,7 @@
     text-align: center;
     min-height: 60vh;
     padding: 40px 20px;
-    background-color: rgba(204, 199, 199, 0.705);
+    background-color: #000;
 }
 
 
@@ -12,6 +12,7 @@
 }
 
 .social-icons h2 {
+    color: aliceblue;
     font-size: 50px;
     margin-bottom: 300px;
 }
