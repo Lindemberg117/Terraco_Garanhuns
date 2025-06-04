@@ -1,7 +1,6 @@
 header {
     width: 100vw;
     display: flex;
-
 }
 
 header div nav ul li a:hover {
@@ -33,9 +32,6 @@ header div nav ul li a:hover {
 }
 
 .navegacao ul {
-
-    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
-
     display: flex;
     justify-content: center;
     justify-content: space-evenly;

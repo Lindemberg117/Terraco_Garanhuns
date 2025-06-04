@@ -13,9 +13,6 @@ footer a {
 
 .links {
     list-style: none;
-    /* Remove os marcadores (pontos) */
     padding: 0;
-    /* Remove o padding padrão */
     margin: 0;
-    /* Remove a margem padrão (opcional) */
 }
