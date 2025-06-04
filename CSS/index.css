@@ -1,29 +1,33 @@
-#comida{
+#comida {
     width: 100vw;
+    height: 500px;
 }
+
 /* #terraco{ */
-    /* border-radius: 50%; */
+/* border-radius: 50%; */
 /* } */
 
 
 
 
-main{
+main {
     background-color: #000000;
     color: #f8f8f8;
+    padding-bottom: 4rem;
 }
 
 
 .destaque {
-    font-style: italic;
+    /* font-style: italic; */
     margin: 2rem auto;
     max-width: 600px;
     line-height: 1.8;
 }
 
 .servicos {
-    background-color: #cfcfcf;
+    /* background-color: #a1a1a1; */
     padding: 1.5rem;
+    border: 2px solid #a1a1a1;
     border-radius: 8px;
     margin: auto;
     max-width: 500px;
