@@ -1,43 +1,28 @@
 #comida {
-    width: 100vw;
-    height: 500px;
+  width: 100vw;
+  height: 500px;
 }
-
-/* #terraco{ */
-/* border-radius: 50%; */
-/* } */
-
-
-
 
 main {
-    background-color: #000000;
-    color: #f8f8f8;
-    padding-bottom: 4rem;
+  background-color: #000000;
+  color: #f8f8f8;
+  padding-bottom: 4rem;
+  width: 100vw;
 }
 
-
 .destaque {
-    /* font-style: italic; */
-    margin: 2rem auto;
-    max-width: 600px;
-    line-height: 1.8;
+  padding: 1.5rem;
+  border: 2px solid #ff4400;
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 500px;
+  font-size: 20px;
 }
 
 .servicos {
-    /* background-color: #a1a1a1; */
-    padding: 1.5rem;
-    border: 2px solid #a1a1a1;
-    border-radius: 8px;
-    margin: auto;
-    max-width: 500px;
-}
-
-.servicos ul {
-    list-style-type: none;
-    padding: 0px;
-}
-
-.servicos li {
-    margin: 0.8rem 0;
+  margin: 40px 0;
+  width: 100vw;
+  font-size: 20px;
+  line-height: 1.8;
+  text-align: center;
 }
