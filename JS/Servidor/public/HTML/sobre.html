@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <header>
+    <!-- <header>
       <div class="container-preto">
         <div class="imagem-header">
           <img src="/IMG/Terraco.jpg" alt="" id="Terraco" />
@@ -98,6 +98,181 @@
           </ul>
         </section>
       </div>
-    </footer>
+    </footer> -->
   </body>
+  <script>
+    window.addEventListener("load", main);
+
+function main() {
+    criaHeader();
+    criaNossaHistoria();
+    criaFooter();
+}
+
+// Função para criar o Header
+function criaHeader() {
+    const header = document.createElement("header");
+    const containerPreto = document.createElement("div");
+    containerPreto.classList.add("container-preto");
+
+    const imagemHeader = document.createElement("div");
+    imagemHeader.classList.add("imagem-header");
+    const imgHeader = document.createElement("img");
+    imgHeader.src = "/IMG/Terraco.jpg";
+    imgHeader.alt = "";
+    imgHeader.id = "Terraco";
+    imagemHeader.appendChild(imgHeader);
+
+    const navegacao = document.createElement("div");
+    navegacao.classList.add("navegacao");
+
+    const nav = document.createElement("nav");
+    const ul = document.createElement("ul");
+
+    const links = [
+        { texto: "Home", href: "../index.html" },
+        { texto: "Sobre nós", href: "sobre.html" },
+        { texto: "Cardápio", href: "cardapio.html" },
+        { texto: "Eventos", href: "eventos.html" },
+        { texto: "Contatos", href: "Contatos.html" }
+    ];
+
+    links.forEach(link => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = link.href;
+        a.textContent = link.texto;
+        li.appendChild(a);
+        ul.appendChild(li);
+    });
+
+    nav.appendChild(ul);
+    navegacao.appendChild(nav);
+
+    containerPreto.appendChild(imagemHeader);
+    containerPreto.appendChild(navegacao);
+    header.appendChild(containerPreto);
+
+    document.body.appendChild(header);
+}
+
+// Função para criar a seção "Nossa História"
+function criaNossaHistoria() {
+    const main = document.createElement("main");
+
+    const section = document.createElement("section");
+    const nossaHistoria = document.createElement("div");
+    nossaHistoria.classList.add("nossa-historia");
+
+    const informacoes = document.createElement("div");
+    informacoes.classList.add("informacoes");
+
+    const imagem = document.createElement("div");
+    imagem.classList.add("imagem");
+    const imgHistoria = document.createElement("img");
+    imgHistoria.src = "/IMG/Terraco2.png";
+    imgHistoria.alt = "";
+    imagem.appendChild(imgHistoria);
+
+    const texto = document.createElement("div");
+    texto.classList.add("texto");
+
+    const h1 = document.createElement("h1");
+    h1.textContent = "Nossa História";
+    texto.appendChild(h1);
+
+    const paragrafos = [
+        "Fundada em 2002 por três amigos apaixonados por boa comida, cerveja gelada e encontros ao ar livre, a Churrascaria e Chopperia Terraço nasceu com a missão de oferecer uma experiência completa de sabor, conforto e convivência.",
+        "Inspirado nos tradicionais churrascos de família e no clima descontraído dos bares brasileiros, o Terraço começou como um pequeno espaço com vista privilegiada para o pôr do sol - o que acabou inspirando o nome da casa. Com o tempo, o lugar se tornou um ponto de encontro favorito para moradores locais e turistas, graças ao seu ambiente acolhedor, música ao vivo nos finais de semana e uma seleção impecável de cortes nobres e choppes artesanais.",
+        "O sucesso do Terraço sempre foi baseado em três pilares: qualidade nos ingredientes, atendimento com alma e paixão pela cultura do churrasco. Hoje, o Terraço continua evoluindo, sem nunca perder sua essência: ser um lugar onde cada visita é uma celebração."
+    ];
+
+    paragrafos.forEach(textoParagrafo => {
+        const p = document.createElement("p");
+        p.textContent = textoParagrafo;
+        texto.appendChild(p);
+    });
+
+    informacoes.appendChild(imagem);
+    informacoes.appendChild(texto);
+    nossaHistoria.appendChild(informacoes);
+    section.appendChild(nossaHistoria);
+
+    main.appendChild(section);
+    document.body.appendChild(main);
+}
+
+// Função para criar o Footer
+function criaFooter() {
+    const footer = document.createElement("footer");
+    const secoes = document.createElement("div");
+    secoes.classList.add("secoes");
+
+    // Seção de informações
+    const informacoes = document.createElement("section");
+    informacoes.classList.add("informacoes");
+
+    const info2 = document.createElement("div");
+    info2.classList.add("info2");
+
+    const h3Info = document.createElement("h3");
+    h3Info.textContent = "Atendimento ao Cliente";
+
+    const pEmail = document.createElement("p");
+    pEmail.textContent = "Email: atendimento@Terraço.com";
+
+    const pTelefone = document.createElement("p");
+    pTelefone.textContent = "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321";
+
+    const pHorario = document.createElement("p");
+    pHorario.textContent = "Horário de Atendimento: Qua-Dom 11h-00h e Ter 17h-00h";
+
+    info2.appendChild(h3Info);
+    info2.appendChild(pEmail);
+    info2.appendChild(pTelefone);
+    info2.appendChild(pHorario);
+
+    informacoes.appendChild(info2);
+
+    const divisao = document.createElement("hr");
+    divisao.classList.add("divisao");
+
+    // Seção de contato
+    const contato = document.createElement("section");
+    contato.classList.add("contato");
+
+    const h1Empresa = document.createElement("h1");
+    h1Empresa.classList.add("empresa");
+    h1Empresa.textContent = "Terraço©";
+
+    const ulLinks = document.createElement("ul");
+    ulLinks.classList.add("links");
+
+    const links = [
+        { texto: "Início", href: "/HTML/index.html", classe: "link1" },
+        { texto: "Sobre nós", href: "/HTML/sobre.html", classe: "link2" }
+    ];
+
+    links.forEach(link => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.classList.add(link.classe);
+        a.href = link.href;
+        a.textContent = link.texto;
+        li.appendChild(a);
+        ulLinks.appendChild(li);
+    });
+
+    contato.appendChild(h1Empresa);
+    contato.appendChild(ulLinks);
+
+    secoes.appendChild(informacoes);
+    secoes.appendChild(divisao);
+    secoes.appendChild(contato);
+
+    footer.appendChild(secoes);
+    document.body.appendChild(footer);
+}
+
+  </script>
 </html>

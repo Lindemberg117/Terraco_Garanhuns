@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <header>
+    <!-- <header>
       <div class="container-preto">
         <div class="imagem-header">
           <img src="/IMG/Terraco.jpg" alt="" id="Terraco" />
@@ -92,6 +92,195 @@
           </ul>
         </section>
       </div>
-    </footer>
+    </footer> -->
+<script>
+window.addEventListener("load", main);
+
+function main() {
+    criaHeader();
+    criaMainContatos();
+    criaFooter();
+    
+}
+
+function criaHeader() {
+    const header = document.createElement("header");
+    const containerPreto = document.createElement("div");
+    containerPreto.classList.add("container-preto");
+
+    const imagemHeader = document.createElement("div");
+    imagemHeader.classList.add("imagem-header");
+    const imgHeader = document.createElement("img");
+    imgHeader.src = "/IMG/Terraco.jpg";
+    imgHeader.alt = "";
+    imgHeader.id = "Terraco";
+    imagemHeader.appendChild(imgHeader);
+
+    const navegacao = document.createElement("div");
+    navegacao.classList.add("navegacao");
+
+    const nav = document.createElement("nav");
+    nav.classList.add("nav");
+
+    const ul = document.createElement("ul");
+    const links = [
+        { texto: "Home", href: "../index.html" },
+        { texto: "Sobre nós", href: "sobre.html" },
+        { texto: "Cardápio", href: "cardapio.html" },
+        { texto: "Eventos", href: "eventos.html" },
+        { texto: "Contatos", href: "Contatos.html" },
+    ];
+
+    links.forEach(link => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = link.href;
+        a.textContent = link.texto;
+        li.appendChild(a);
+        ul.appendChild(li);
+    });
+
+    nav.appendChild(ul);
+    navegacao.appendChild(nav);
+
+    containerPreto.appendChild(imagemHeader);
+    containerPreto.appendChild(navegacao);
+    header.appendChild(containerPreto);
+
+    document.body.appendChild(header);
+}
+
+function criaMainContatos() {
+    const main = document.createElement("main");
+    main.classList.add("main-contatos");
+
+    const contatDiv = document.createElement("div");
+    contatDiv.classList.add("contat");
+
+    const h2 = document.createElement("h2");
+    h2.textContent = "Atendimento ao Cliente";
+    contatDiv.appendChild(h2);
+
+    const contatos = [
+        { imagem: "/IMG/Email.png", texto: "Email: atendimento@Terraço.com" },
+        { imagem: "/IMG/Phone.png", texto: "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321" },
+        { imagem: "/IMG/House.png", texto: "Endereço: Av. Rui Barbosa, 1070 - Heliópolis, Garanhuns." }
+    ];
+
+    contatos.forEach(contato => {
+        const p = document.createElement("p");
+        const img = document.createElement("img");
+        img.src = contato.imagem;
+        img.alt = contato.texto.split(":")[0];
+
+        p.appendChild(img);
+        p.appendChild(document.createTextNode(contato.texto));
+        contatDiv.appendChild(p);
+    });
+
+    const socialDiv = document.createElement("div");
+    socialDiv.classList.add("social-icons");
+
+    const socialTitle = document.createElement("h2");
+    socialTitle.textContent = "Nos siga nas redes sociais";
+    socialDiv.appendChild(socialTitle);
+
+    const socialLinks = [
+        { href: "https://m.facebook.com/terracoChopperia/", imgSrc: "/IMG/Facebook.png", alt: "Facebook" },
+        { href: "https://www.instagram.com/terracogaranhuns", imgSrc: "/IMG/Instagram.png", alt: "Instagram" },
+        { href: "https://api.whatsapp.com/send?phone=5587999984126", imgSrc: "/IMG/WhatsApp.png", alt: "WhatsApp" }
+    ];
+
+    socialLinks.forEach(link => {
+        const a = document.createElement("a");
+        a.href = link.href;
+
+        const img = document.createElement("img");
+        img.src = link.imgSrc;
+        img.alt = link.alt;
+
+        a.appendChild(img);
+        a.appendChild(document.createTextNode(link.alt));
+        socialDiv.appendChild(a);
+    });
+
+    main.appendChild(contatDiv);
+    main.appendChild(socialDiv);
+    document.body.appendChild(main);
+}
+
+function criaFooter() {
+    const footer = document.createElement("footer");
+    const secoes = document.createElement("div");
+    secoes.classList.add("secoes");
+
+    // Seção de informações
+    const informacoes = document.createElement("section");
+    informacoes.classList.add("informacoes");
+
+    const info2 = document.createElement("div");
+    info2.classList.add("info2");
+
+    const h3Info = document.createElement("h3");
+    h3Info.textContent = "Atendimento ao Cliente";
+
+    const pEmail = document.createElement("p");
+    pEmail.textContent = "Email: atendimento@Terraço.com";
+
+    const pTelefone = document.createElement("p");
+    pTelefone.textContent = "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321";
+
+    const pHorario = document.createElement("p");
+    pHorario.textContent = "Horário de Atendimento:Qua-Dom 11h-00h e Ter 17h-00h";
+
+    info2.appendChild(h3Info);
+    info2.appendChild(pEmail);
+    info2.appendChild(pTelefone);
+    info2.appendChild(pHorario);
+
+    informacoes.appendChild(info2);
+
+    const divisao = document.createElement("hr");
+    divisao.classList.add("divisao");
+
+    // Seção de contato
+    const contato = document.createElement("section");
+    contato.classList.add("contato");
+
+    const h1Empresa = document.createElement("h1");
+    h1Empresa.classList.add("empresa");
+    h1Empresa.textContent = "Terraço©";
+
+    const ulLinks = document.createElement("ul");
+    ulLinks.classList.add("links");
+
+    const links = [
+        { texto: "Início", href: "/HTML/index.html", classe: "link1" },
+        { texto: "Sobre nós", href: "/HTML/sobre.html", classe: "link2" },
+    ];
+
+    links.forEach(link => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.classList.add(link.classe);
+        a.href = link.href;
+        a.textContent = link.texto;
+        li.appendChild(a);
+        ulLinks.appendChild(li);
+    });
+
+    contato.appendChild(h1Empresa);
+    contato.appendChild(ulLinks);
+
+    secoes.appendChild(informacoes);
+    secoes.appendChild(divisao);
+    secoes.appendChild(contato);
+
+    footer.appendChild(secoes);
+    document.body.appendChild(footer);
+}
+
+
+    </script>
   </body>
 </html>
