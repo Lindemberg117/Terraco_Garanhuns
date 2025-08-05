@@ -95,13 +95,14 @@
   <script>
     window.addEventListener("load", main);
 
+    // chama as outras funcoes para criar os elementos do DOM
     function main() {
-        criaHeader();
-        criaMain();
-        criaFooter();
+        criarHeader();
+        criarMain();
+        criarFooter();
     }
 
-    function criaHeader() {
+    function criarHeader() {
         const header = document.createElement("header");
         const containerPreto = document.createElement("div");
         containerPreto.classList.add("container-preto");
@@ -122,7 +123,7 @@
 
         const ul = document.createElement("ul");
         const links = [
-            { texto: "Home", href: "index.html" },
+            { texto: "Home", href: "../index.html" },
             { texto: "Sobre nós", href: "HTML/sobre.html" },
             { texto: "Cardápio", href: "HTML/cardapio.html" },
             { texto: "Eventos", href: "HTML/eventos.html" },
@@ -148,7 +149,7 @@
         document.body.appendChild(header);
     }
 
-    function criaMain() {
+    function criarMain() {
         const main = document.createElement("main");
 
         const imagemComida = document.createElement("img");
@@ -179,7 +180,7 @@
         document.body.appendChild(main);
     }
 
-    function criaFooter() {
+    function criarFooter() {
         const footer = document.createElement("footer");
         const secoes = document.createElement("div");
         secoes.classList.add("secoes");

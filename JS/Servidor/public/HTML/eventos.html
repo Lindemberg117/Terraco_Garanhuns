@@ -91,12 +91,12 @@
     window.addEventListener("load", main);
 
 function main() {
-    criaHeader();
-    criaEventos();
-    criaFooter();
+    criarHeader();
+    criarMain();
+    criarFooter();
 }
 
-function criaHeader() {
+function criarHeader() {
     const header = document.createElement("header");
     const containerPreto = document.createElement("div");
     containerPreto.classList.add("container-preto");
@@ -143,7 +143,7 @@ function criaHeader() {
     document.body.appendChild(header);
 }
 
-function criaEventos() {
+function criarMain() {
     const main = document.createElement("main");
 
     const h1 = document.createElement("h1");
@@ -192,12 +192,11 @@ function criaEventos() {
     document.body.appendChild(main);
 }
 
-function criaFooter() {
+function criarFooter() {
     const footer = document.createElement("footer");
     const secoes = document.createElement("div");
     secoes.classList.add("secoes");
 
-    // Seção de informações
     const informacoes = document.createElement("section");
     informacoes.classList.add("informacoes");
 
@@ -226,7 +225,6 @@ function criaFooter() {
     const divisao = document.createElement("hr");
     divisao.classList.add("divisao");
 
-    // Seção de contato
     const contato = document.createElement("section");
     contato.classList.add("contato");
 
@@ -238,8 +236,8 @@ function criaFooter() {
     ulLinks.classList.add("links");
 
     const links = [
-        { texto: "Início", href: "/HTML/index.html", classe: "link1" },
-        { texto: "Sobre nós", href: "/HTML/sobre.html", classe: "link2" },
+        { texto: "Início", href: "../index.html", classe: "link1" },
+        { texto: "Sobre nós", href: "sobre.html", classe: "link2" },
     ];
 
     links.forEach(link => {

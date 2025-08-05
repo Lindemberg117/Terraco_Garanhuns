@@ -104,13 +104,12 @@
     window.addEventListener("load", main);
 
 function main() {
-    criaHeader();
-    criaNossaHistoria();
-    criaFooter();
+    criarHeader();
+    criarMain();
+    criarFooter();
 }
 
-// Função para criar o Header
-function criaHeader() {
+function criarHeader() {
     const header = document.createElement("header");
     const containerPreto = document.createElement("div");
     containerPreto.classList.add("container-preto");
@@ -155,9 +154,7 @@ function criaHeader() {
 
     document.body.appendChild(header);
 }
-
-// Função para criar a seção "Nossa História"
-function criaNossaHistoria() {
+function criarMain() {
     const main = document.createElement("main");
 
     const section = document.createElement("section");
@@ -202,13 +199,11 @@ function criaNossaHistoria() {
     document.body.appendChild(main);
 }
 
-// Função para criar o Footer
-function criaFooter() {
+function criarFooter() {
     const footer = document.createElement("footer");
     const secoes = document.createElement("div");
     secoes.classList.add("secoes");
 
-    // Seção de informações
     const informacoes = document.createElement("section");
     informacoes.classList.add("informacoes");
 
@@ -237,7 +232,6 @@ function criaFooter() {
     const divisao = document.createElement("hr");
     divisao.classList.add("divisao");
 
-    // Seção de contato
     const contato = document.createElement("section");
     contato.classList.add("contato");
 
@@ -249,8 +243,8 @@ function criaFooter() {
     ulLinks.classList.add("links");
 
     const links = [
-        { texto: "Início", href: "/HTML/index.html", classe: "link1" },
-        { texto: "Sobre nós", href: "/HTML/sobre.html", classe: "link2" }
+        { texto: "Início", href: "../index.html", classe: "link1" },
+        { texto: "Sobre nós", href: "sobre.html", classe: "link2" }
     ];
 
     links.forEach(link => {
