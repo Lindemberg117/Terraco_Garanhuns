@@ -1,301 +1,294 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset=" UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/globals.css" />
-    <link rel="stylesheet" href="../CSS/header.css" />
-    <link rel="stylesheet" href="../CSS/footer.css" />
-    <link rel="stylesheet" href="../CSS/cardapio.css" />
-    <title>Cardápio</title>
-  </head>
-
-  <body>
-    <!-- <header>
-      <div class="container-preto">
-        <div class="imagem-header">
-          <img src="/IMG/Terraco.jpg" alt="" id="Terraco" />
-        </div>
-        <div class="navegacao">
-          <nav>
-            <ul>
-              <li>
-                <a href="../index.html">Home</a>
-              </li>
-              <li>
-                <a href="sobre.html">Sobre nós</a>
-              </li>
-              <li>
-                <a href="cardapio.html">Cardápio</a>
-              </li>
-
-              <li>
-                <a href="eventos.html">Eventos</a>
-              </li>
-              <li>
-                <a href="Contatos.html">Contatos</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-    <main>
-      <ul class="comidas">
-        <a href="">
-          <li class="comida">
-            <img src="/IMG/Tripa.png" alt="Imagem de um tripa assada" />
-            <h2>Tripa</h2>
-            <p>
-              Tripa acebolada, crocante por fora e suculenta por dentro. Ideal
-              para petiscar com os amigos!
-            </p>
-          </li>
-        </a>
-        <a href="">
-          <li class="comida">
-            <img src="/IMG/Sushi.png" alt="Imagem de um prato de Sushi" />
-            <h2>Sushi</h2>
-            <p>
-              Seleção de sushis frescos preparados com ingredientes de qualidade
-              e sabor oriental autêntico.
-            </p>
-          </li>
-        </a>
-        <a href="">
-          <li class="comida">
-            <img src="/IMG/Camarao.png" alt="Imagem de um prato de camarão" />
-            <h2>Camarão</h2>
-            <p>
-              Camarões grelhados temperados com ervas finas. Um toque do mar no
-              seu prato!
-            </p>
-          </li>
-        </a>
-        <a href="">
-          <li class="comida">
-            <img src="/IMG/Carnes.png" alt="Imagem de uma carne assada" />
-            <h2>Carnes</h2>
-            <p>
-              Variedade de cortes nobres como picanha, alcatra e fraldinha,
-              preparados na brasa com todo o sabor do churrasco tradicional.
-            </p>
-          </li>
-        </a>
-        <a href="">
-          <li class="comida">
-            <img src="/IMG/Chopp.png" alt="Imagem de uma caneca de chopp" />
-            <h2>Chopp</h2>
-            <p>
-              Chopp gelado, cremoso e servido na medida para refrescar seus
-              momentos!
-            </p>
-          </li>
-        </a>
-        <a href="">
-          <li class="comida">
-            <img src="/IMG/Mojito.png" alt="Imagem de um copo de mojito" />
-            <h2>Drinks</h2>
-            <p>
-              Drinks refrescantes e bem elaborados com frutas, hortelã e um
-              toque especial!
-            </p>
-          </li>
-        </a>
-        <a href="">
-          <li class="comida">
-            <img src="/IMG/Vinho.png" alt="Imagem de uma taça de vinho" />
-            <h2>Vinho</h2>
-            <p>
-              Vinhos selecionados para harmonizar com bons momentos. Tintos,
-              brancos ou rosés — escolha o seu preferido!
-            </p>
-          </li>
-        </a>
-      </ul>
-    </main>
-
-    <footer>
-      <div class="secoes">
-        <section class="informacoes">
-          <div class="info2">
-            <h3>Atendimento ao Cliente</h3>
-            <p>Email: atendimento@Terraço.com</p>
-            <p>Telefone: (11) 9 1234-5678 / (11) 9 8765-4321</p>
-            <p>Horário de Atendimento:Qua-Dom 11h-00h e Ter 17h-00h</p>
-          </div>
-        </section>
-        <hr class="divisao" />
-        <section class="contato">
-          <h1 class="empresa">Terraço©</h1>
-          <ul class="links">
-            <li><a class="link1" href="/HTML/index.html">Início</a></li>
-            <li><a class="link2" href="/HTML/sobre.html">Sobre nós</a></li>
-          </ul>
-        </section>
-      </div>
-      <div></div>
-    </footer>
-  </body> -->
-
-    <script>
-      window.addEventListener("load", main);
-      function main() {
-        criarHeader();
-        criarMain();
-        criarFooter();
-      }
-
-      function criarHeader() {
-        const header = document.createElement("header");
-        const containerPreto = document.createElement("div");
-        const imagemHeader = document.createElement("div");
-        const imgHeader = document.createElement("img");
-        const navegacao = document.createElement("div");
-        const nav = document.createElement("nav");
-        const ul = document.createElement("ul");
-        const links = [
-          { texto: "Home", href: "../index.html" },
-          { texto: "Sobre nós", href: "sobre.html" },
-          { texto: "Cardápio", href: "cardapio.html" },
-          { texto: "Eventos", href: "eventos.html" },
-          { texto: "Contatos", href: "Contatos.html" },
-          { texto: "Pedidos", href: "Pedidos.html" },
-        ];
-        containerPreto.classList.add("container-preto");
-        navegacao.classList.add("navegacao");
-        nav.classList.add("nav");
-        imagemHeader.classList.add("imagem-header");
-        imgHeader.src = "../IMG/Terraco.jpg";
-        imgHeader.alt = "";
-        imgHeader.id = "Terraco";
-        imagemHeader.appendChild(imgHeader);
-        links.forEach(function (link) {
-          const li = document.createElement("li");
-          const a = document.createElement("a");
-          a.href = link.href;
-          a.textContent = link.texto;
-          li.appendChild(a);
-          ul.appendChild(li);
-        });
-
-        nav.appendChild(ul);
-        navegacao.appendChild(nav);
-
-        containerPreto.appendChild(imagemHeader);
-        containerPreto.appendChild(navegacao);
-        header.appendChild(containerPreto);
-
-        document.body.appendChild(header);
-      }
-
-      async function criarMain() {
-        const main = document.createElement("main");
-        const ul = document.createElement("ul");
-        ul.classList.add("comidas");
-
-        try {
-          const response = await fetch("http://localhost:3000/api/cardapio");
-          const itensCardapio = await response.json();
-
-          itensCardapio.forEach(item => {
-            const a = document.createElement("a");
-            const li = document.createElement("li");
-            const img = document.createElement("img");
-            const h2 = document.createElement("h2");
-            const p = document.createElement("p");
-            const preco = document.createElement("p");
-            const botao = document.createElement("button");
-
-            a.href = "#";
-            li.classList.add("comida");
-            img.src = item.img;
-            img.alt = `Imagem de ${item.nome}`;
-            h2.textContent = item.nome;
-            p.textContent = item.descricao;
-            preco.classList.add("preco");
-            preco.textContent = `Preço: R$ ${item.valor.toFixed(2).replace('.', ',')}`;
-            botao.classList.add("botao-adicionar");
-            botao.textContent = "Adicionar aos pedidos";
-
-            li.appendChild(img);
-            li.appendChild(h2);
-            li.appendChild(p);
-            li.appendChild(preco);
-            li.appendChild(botao);
-            a.appendChild(li);
-            ul.appendChild(a);
-          });
-
-          main.appendChild(ul);
-          document.body.appendChild(main);
-        } catch (error) {
-          console.error("Erro ao carregar o cardápio:", error);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/globals.css">
+    <link rel="stylesheet" href="/CSS/header.css">
+    <link rel="stylesheet" href="/CSS/footer.css">
+    <link rel="stylesheet" href="/CSS/cardapio.css">
+    <title>Cardápio - Terraço Garanhuns</title>
+    <style>
+        .carrinho-flutuante {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            width: 250px;
         }
-      }
+        .carrinho-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .carrinho-total {
+            font-weight: bold;
+            margin-top: 10px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        .btn-finalizar {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let pedidos = [];
+        
+        window.addEventListener("load", main);
+        
+        function main() {
+            criarHeader();
+            criarMain();
+            criarFooter();
+            atualizarCarrinho();
+        }
 
+        function criarHeader() {
+            const header = document.createElement("header");
+            const containerPreto = document.createElement("div");
+            const imagemHeader = document.createElement("div");
+            const imgHeader = document.createElement("img");
+            const navegacao = document.createElement("div");
+            const nav = document.createElement("nav");
+            const ul = document.createElement("ul");
+            const links = [
+                { texto: "Home", href: "/index.html" },
+                { texto: "Sobre nós", href: "/HTML/sobre.html" },
+                { texto: "Cardápio", href: "/HTML/cardapio.html" },
+                { texto: "Eventos", href: "/HTML/eventos.html" },
+                { texto: "Contatos", href: "/HTML/Contatos.html" },
+                { texto: "Pedidos", href: "/HTML/Pedidos.html" }
+            ];
+            
+            containerPreto.classList.add("container-preto");
+            navegacao.classList.add("navegacao");
+            nav.classList.add("nav");
+            imagemHeader.classList.add("imagem-header");
+            imgHeader.src = "/IMG/Terraco.jpg";
+            imgHeader.alt = "Restaurante Terraço";
+            imgHeader.id = "Terraco";
+            imagemHeader.appendChild(imgHeader);
+            
+            links.forEach(function(link) {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.texto;
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
 
-      function criarFooter() {
-        const footer = document.createElement("footer");
-        const secoes = document.createElement("div");
-        const informacoes = document.createElement("section");
-        const info2 = document.createElement("div");
-        const h3Info = document.createElement("h3");
-        const pEmail = document.createElement("p");
-        const pTelefone = document.createElement("p");
-        const pHorario = document.createElement("p");
-        const divisao = document.createElement("hr");
-        const contato = document.createElement("section");
-        const h1Empresa = document.createElement("h1");
-        const ulLinks = document.createElement("ul");
-        const links = [
-          { texto: "Início", href: "#", classe: "link1" },
-          { texto: "Sobre nós", href: "sobre.html", classe: "link2" },
-        ];
+            nav.appendChild(ul);
+            navegacao.appendChild(nav);
+            containerPreto.appendChild(imagemHeader);
+            containerPreto.appendChild(navegacao);
+            header.appendChild(containerPreto);
+            document.body.appendChild(header);
+        }
 
-        secoes.classList.add("secoes");
-        informacoes.classList.add("informacoes");
-        info2.classList.add("info2");
-        divisao.classList.add("divisao");
-        contato.classList.add("contato");
-        h1Empresa.classList.add("empresa");
-        divisao.classList.add("divisao");
-        contato.classList.add("contato");
-        h1Empresa.classList.add("empresa");
-        ulLinks.classList.add("links");
+        function criarMain() {
+            const main = document.createElement("main");
+            const ul = document.createElement("ul");
+            ul.classList.add("comidas");
 
-        h3Info.textContent = "Atendimento ao Cliente";
-        pEmail.textContent = "Email: atendimento@Terraço.com";
-        pTelefone.textContent = "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321";
-        pHorario.textContent =
-          "Horário de Atendimento:Qua-Dom 11h-00h e Ter 17h-00h";
-        h1Empresa.textContent = "Terraço©";
+            const itensCardapio = [
+                {
+                    id: 1,
+                    nome: "Tripa",
+                    imagem: "/IMG/Tripa.png",
+                    descricao: "Tripa acebolada, crocante por fora e suculenta por dentro. Ideal para petiscar com os amigos!",
+                    preco: 25.00
+                },
+                {
+                    id: 2,
+                    nome: "Sushi",
+                    imagem: "/IMG/Sushi.png",
+                    descricao: "Seleção de sushis frescos preparados com ingredientes de qualidade e sabor oriental autêntico.",
+                    preco: 39.90
+                },
+                {
+                    id: 3,
+                    nome: "Camarão",
+                    imagem: "/IMG/Camarao.png",
+                    descricao: "Camarões grelhados temperados com ervas finas. Um toque do mar no seu prato!",
+                    preco: 49.00
+                },
+                {
+                    id: 4,
+                    nome: "Carnes",
+                    imagem: "/IMG/Carnes.png",
+                    descricao: "Variedade de cortes nobres como picanha, alcatra e fraldinha, preparados na brasa com todo o sabor do churrasco tradicional.",
+                    preco: 59.90
+                },
+                {
+                    id: 5,
+                    nome: "Chopp",
+                    imagem: "/IMG/Chopp.png",
+                    descricao: "Chopp gelado, cremoso e servido na medida para refrescar seus momentos!",
+                    preco: 9.90
+                },
+                {
+                    id: 6,
+                    nome: "Drinks",
+                    imagem: "/IMG/Mojito.png",
+                    descricao: "Drinks refrescantes e bem elaborados com frutas, hortelã e um toque especial!",
+                    preco: 19.90
+                },
+                {
+                    id: 7,
+                    nome: "Vinho",
+                    imagem: "/IMG/Vinho.png",
+                    descricao: "Vinhos selecionados para harmonizar com bons momentos. Tintos, brancos ou rosés — escolha o seu preferido!",
+                    preco: 69.90
+                }
+            ];
 
-        info2.appendChild(h3Info);
-        info2.appendChild(pEmail);
-        info2.appendChild(pTelefone);
-        info2.appendChild(pHorario);
-        informacoes.appendChild(info2);
+            itensCardapio.forEach(item => {
+                const li = document.createElement("li");
+                li.classList.add("comida");
+                li.innerHTML = `
+                    <img src="${item.imagem}" alt="Imagem de ${item.nome}">
+                    <h2>${item.nome}</h2>
+                    <p>${item.descricao}</p>
+                    <p class="preco">R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
+                    <button class="botao-adicionar" 
+                            data-id="${item.id}" 
+                            data-nome="${item.nome}" 
+                            data-preco="${item.preco}">
+                        Adicionar aos pedidos
+                    </button>
+                `;
+                ul.appendChild(li);
+            });
 
-        links.forEach(function (link) {
-          const li = document.createElement("li");
-          const a = document.createElement("a");
-          a.classList.add(link.classe);
-          a.href = link.href;
-          a.textContent = link.texto;
-          li.appendChild(a);
-          ulLinks.appendChild(li);
-        });
+            main.appendChild(ul);
+            document.body.appendChild(main);
 
-        contato.appendChild(h1Empresa);
-        contato.appendChild(ulLinks);
-        secoes.appendChild(informacoes);
-        secoes.appendChild(divisao);
-        secoes.appendChild(contato);
-        footer.appendChild(secoes);
+            // Adiciona eventos aos botões
+            document.querySelectorAll('.botao-adicionar').forEach(button => {
+                button.addEventListener('click', adicionarAoCarrinho);
+            });
+        }
 
-        document.body.appendChild(footer);
-      }
+        function adicionarAoCarrinho(event) {
+            const button = event.target;
+            const id = parseInt(button.getAttribute('data-id'));
+            const nome = button.getAttribute('data-nome');
+            const preco = parseFloat(button.getAttribute('data-preco'));
+            
+            // Verifica se o item já está no carrinho
+            const itemExistente = pedidos.find(item => item.id === id);
+            
+            if (itemExistente) {
+                itemExistente.quantidade += 1;
+            } else {
+                pedidos.push({
+                    id,
+                    nome,
+                    preco,
+                    quantidade: 1
+                });
+            }
+            
+            atualizarCarrinho();
+        }
+
+        function atualizarCarrinho() {
+            let carrinho = document.querySelector('.carrinho-flutuante');
+            
+            if (!carrinho) {
+                carrinho = document.createElement('div');
+                carrinho.classList.add('carrinho-flutuante');
+                document.body.appendChild(carrinho);
+            }
+            
+            let html = '<h3>Seu Pedido</h3>';
+            
+            if (pedidos.length === 0) {
+                html += '<p>Carrinho vazio</p>';
+            } else {
+                let total = 0;
+                
+                pedidos.forEach(item => {
+                    const subtotal = item.preco * item.quantidade;
+                    total += subtotal;
+                    
+                    html += `
+                        <div class="carrinho-item">
+                            <span>${item.nome} x${item.quantidade}</span>
+                            <span>R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                    <div class="carrinho-total">
+                        <span>Total:</span>
+                        <span>R$ ${total.toFixed(2).replace('.', ',')}</span>
+                    </div>
+                    <button class="btn-finalizar">Finalizar Pedido</button>
+                `;
+            }
+            
+            carrinho.innerHTML = html;
+            
+            // Adiciona evento ao botão de finalizar
+            const finalizarBtn = carrinho.querySelector('.btn-finalizar');
+            if (finalizarBtn) {
+                finalizarBtn.addEventListener('click', finalizarPedido);
+            }
+        }
+
+        function finalizarPedido() {
+            if (pedidos.length === 0) {
+                alert("Adicione itens ao carrinho antes de finalizar!");
+                return;
+            }
+            
+            // Aqui você pode implementar a lógica para enviar os pedidos ao servidor
+            alert("Pedido finalizado com sucesso!");
+            pedidos = [];
+            atualizarCarrinho();
+        }
+
+        function criarFooter() {
+            const footer = document.createElement("footer");
+            footer.innerHTML = `
+                <div class="secoes">
+                    <section class="informacoes">
+                        <div class="info2">
+                            <h3>Atendimento ao Cliente</h3>
+                            <p>Email: atendimento@Terraço.com</p>
+                            <p>Telefone: (11) 9 1234-5678 / (11) 9 8765-4321</p>
+                            <p>Horário de Atendimento: Qua-Dom 11h-00h e Ter 17h-00h</p>
+                        </div>
+                    </section>
+                    <hr class="divisao">
+                    <section class="contato">
+                        <h1 class="empresa">Terraço©</h1>
+                        <ul class="links">
+                            <li><a class="link1" href="/index.html">Início</a></li>
+                            <li><a class="link2" href="/HTML/sobre.html">Sobre nós</a></li>
+                        </ul>
+                    </section>
+                </div>
+            `;
+            document.body.appendChild(footer);
+        }
     </script>
-  </body>
+</body>
 </html>

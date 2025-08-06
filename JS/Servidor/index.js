@@ -55,6 +55,32 @@ app.post('/cardapio', async (req, res) => {
     res.status(201).json(novoItem)
 })
 
+
+// 🔹 POST: Criar novo pedido
+app.post('/pedidos', async (req, res) => {
+    try {
+        const db = await dbPromise;
+        const { itens, total } = req.body;
+
+        if (!itens || !total) {
+            return res.status(400).json({ erro: 'Dados do pedido incompletos' });
+        }
+
+        const result = await db.run(
+            `INSERT INTO pedidos (itens, total, data) VALUES (?, ?, ?)`,
+            [JSON.stringify(itens), total, new Date().toISOString()]
+        );
+
+        res.status(201).json({ 
+            mensagem: 'Pedido criado com sucesso',
+            id: result.lastID 
+        });
+    } catch (erro) {
+        console.error('Erro ao criar pedido:', erro);
+        res.status(500).json({ erro: 'Erro interno do servidor' });
+    }
+});
+
 // 🔹 PUT: Atualizar item
 app.put('/cardapio/:id', async (req, res) => {
     const db = await dbPromise
