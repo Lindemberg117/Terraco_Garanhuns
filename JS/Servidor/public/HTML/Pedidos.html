@@ -171,86 +171,91 @@
         titulo.textContent = "Pedidos";
         container.appendChild(titulo);
 
-        lista.className = "items";
+        const pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
 
         let total = 0;
-        const pedidos = [
-          {
-            nome: "Camarao",
-            imagem: "../IMG/Camarao.png",
-            quantidade: 1,
-            preco: 17.0,
-          },
-          {
-            nome: "Choop",
-            imagem: "../IMG/Chopp.png",
-            quantidade: 1,
-            preco: 10.99,
-          },
-        ];
+        if (pedidos.length === 0) {
+          const itemVazio = document.createElement("li");
+          itemVazio.textContent = "Seu carrinho de pedidos está vazio.";
+          itemVazio.style.textAlign = "center";
+          lista.appendChild(itemVazio);
+        } else {
+          pedidos.forEach(function (pedido, index) {
+            // Adicionamos 'index' para saber qual item remover
+            const item = document.createElement("li");
+            const img = document.createElement("img");
+            const itemInfo = document.createElement("div");
+            const nome = document.createElement("h3");
+            const quantidade = document.createElement("p");
+            const preco = document.createElement("p");
+            const remover = document.createElement("div");
+            const btnRemover = document.createElement("button");
 
-        pedidos.forEach(function (pedido) {
-          const item = document.createElement("li");
-          const img = document.createElement("img");
-          const itemInfo = document.createElement("div");
-          const nome = document.createElement("h3");
-          const quantidade = document.createElement("p");
-          const preco = document.createElement("p");
+            item.className = "item";
+            img.src = pedido.imagem;
+            img.alt = `Produto: ${pedido.nome}`;
+            itemInfo.className = "item-info";
+            nome.textContent = pedido.nome;
+            quantidade.className = "item-quantidade";
+            quantidade.textContent = `Quantidade: ${pedido.quantidade}`;
+            itemInfo.appendChild(nome);
+            itemInfo.appendChild(quantidade);
+            preco.className = "item-preco";
+            preco.textContent = `R$ ${(
+              parseInt(pedido.preco) * pedido.quantidade
+            )
+              .toFixed(2)
+              .replace(".", ",")}`;
+            remover.className = "remove";
+            btnRemover.textContent = "Remover";
 
-          const remover = document.createElement("div");
+            // Evento para o botão de remover
+            btnRemover.addEventListener("click", function () {
+              removerItemDoPedido(index);
+            });
 
-          const btnRemover = document.createElement("button");
+            remover.appendChild(btnRemover);
+            item.appendChild(img);
+            item.appendChild(itemInfo);
+            item.appendChild(preco);
+            item.appendChild(remover);
+            lista.appendChild(item);
 
-          item.className = "item";
-
-          img.src = pedido.imagem;
-          img.alt = `Produto: ${pedido.nome}`;
-
-          itemInfo.className = "item-info";
-
-          nome.textContent = pedido.nome;
-
-          quantidade.className = "item-quantidade";
-          quantidade.textContent = `Quantidade: ${pedido.quantidade}`;
-
-          itemInfo.appendChild(nome);
-          itemInfo.appendChild(quantidade);
-
-          preco.className = "item-preco";
-          preco.textContent = `R$ ${pedido.preco.toFixed(2)}`;
-
-          remover.className = "remove";
-
-          btnRemover.textContent = "Remover";
-          remover.appendChild(btnRemover);
-
-          item.appendChild(img);
-          item.appendChild(itemInfo);
-          item.appendChild(preco);
-          item.appendChild(remover);
-
-          lista.appendChild(item);
-
-          total += pedido.preco * pedido.quantidade;
-        });
+            total += pedido.preco * pedido.quantidade;
+          });
+        }
 
         container.appendChild(lista);
         totalDiv.className = "total";
-        totalSpan.textContent = `Total: R$ ${total.toFixed(2)}`;
+        totalSpan.textContent = `Total: R$ ${total
+          .toFixed(2)
+          .replace(".", ",")}`;
         checkout.className = "checkout";
         btnFinalizar.textContent = "Finalizar Compra";
-
         totalDiv.appendChild(totalSpan);
-
         container.appendChild(totalDiv);
-
         checkout.appendChild(btnFinalizar);
-
         container.appendChild(checkout);
-
         main.appendChild(container);
         document.body.appendChild(main);
       }
+
+      function removerItemDoPedido(index) {
+        // Pega a lista atual de pedidos
+        let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+
+        // Remove o item da lista usando seu índice (index)
+        pedidos.splice(index, 1);
+
+        // Salva a nova lista (sem o item removido) no localStorage
+        localStorage.setItem("pedidos", JSON.stringify(pedidos));
+
+        // Recarrega a página para que as mudanças apareçam
+        window.location.reload();
+      }
+
+      // Chame a função para criar a página de pedidos
+      criarMainPedidos();
       function criarFooter() {
         const footer = document.createElement("footer");
         const secoes = document.createElement("div");
