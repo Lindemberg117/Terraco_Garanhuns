@@ -136,7 +136,7 @@ function criarHeader() {
         { texto: "Contatos", href: "Contatos.html" }
     ];
 
-    links.forEach(link => {
+    links.forEach(function(link){
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.href = link.href;
@@ -184,7 +184,7 @@ function criarMain() {
         "O sucesso do Terraço sempre foi baseado em três pilares: qualidade nos ingredientes, atendimento com alma e paixão pela cultura do churrasco. Hoje, o Terraço continua evoluindo, sem nunca perder sua essência: ser um lugar onde cada visita é uma celebração."
     ];
 
-    paragrafos.forEach(textoParagrafo => {
+    paragrafos.forEach(function(textoParagrafo) {
         const p = document.createElement("p");
         p.textContent = textoParagrafo;
         texto.appendChild(p);
@@ -247,7 +247,7 @@ function criarFooter() {
         { texto: "Sobre nós", href: "sobre.html", classe: "link2" }
     ];
 
-    links.forEach(link => {
+    links.forEach(function(link){
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.classList.add(link.classe);

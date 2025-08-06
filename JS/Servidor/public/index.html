@@ -95,7 +95,6 @@
   <script>
     window.addEventListener("load", main);
 
-    // chama as outras funcoes para criar os elementos do DOM
     function main() {
         criarHeader();
         criarMain();
@@ -130,7 +129,7 @@
             { texto: "Contatos", href: "HTML/Contatos.html" },
         ];
 
-        links.forEach(link => {
+        links.forEach(function(link) {
             const li = document.createElement("li");
             const a = document.createElement("a");
             a.href = link.href;
@@ -228,7 +227,7 @@
             { texto: "Sobre nós", href: "/HTML/sobre.html", classe: "link2" },
         ];
 
-        links.forEach(link => {
+        links.forEach(function(link){
             const li = document.createElement("li");
             const a = document.createElement("a");
             a.classList.add(link.classe);

@@ -124,7 +124,7 @@ function criarHeader() {
         { texto: "Contatos", href: "Contatos.html" },
     ];
 
-    links.forEach(link => {
+    links.forEach(function(link) {
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.href = link.href;
@@ -166,7 +166,7 @@ function criarMain() {
         }
     ];
 
-    eventos.forEach(evento => {
+    eventos.forEach(function(evento) {
         const li = document.createElement("li");
 
         const img = document.createElement("img");
@@ -240,7 +240,7 @@ function criarFooter() {
         { texto: "Sobre nós", href: "sobre.html", classe: "link2" },
     ];
 
-    links.forEach(link => {
+    links.forEach(function(link) {
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.classList.add(link.classe);

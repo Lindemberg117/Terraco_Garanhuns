@@ -131,7 +131,7 @@ function criarHeader() {
         { texto: "Contatos", href: "Contatos.html" },
     ];
 
-    links.forEach(link => {
+    links.forEach(function(link) {
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.href = link.href;
@@ -167,7 +167,7 @@ function criarMain() {
         { imagem: "/IMG/House.png", texto: "Endereço: Av. Rui Barbosa, 1070 - Heliópolis, Garanhuns." }
     ];
 
-    contatos.forEach(contato => {
+    contatos.forEach(function(contato) {
         const p = document.createElement("p");
         const img = document.createElement("img");
         img.src = contato.imagem;
@@ -191,7 +191,7 @@ function criarMain() {
         { href: "https://api.whatsapp.com/send?phone=5587999984126", imgSrc: "/IMG/WhatsApp.png", alt: "WhatsApp" }
     ];
 
-    socialLinks.forEach(link => {
+    socialLinks.forEach(function(link){
         const a = document.createElement("a");
         a.href = link.href;
 
@@ -257,7 +257,7 @@ function criarFooter() {
         { texto: "Sobre nós", href: "sobre.html", classe: "link2" },
     ];
 
-    links.forEach(link => {
+    links.forEach(function(link) {
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.classList.add(link.classe);
