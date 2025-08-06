@@ -1,322 +1,272 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pedidos</title>
-    <link rel="stylesheet" href="../CSS/globals.css" />
-    <link rel="stylesheet" href="../CSS/header.css" />
-    <link rel="stylesheet" href="../CSS/footer.css" />
-    <link rel="stylesheet" href="../CSS/pedidos.css" />
-  </head>
-  <body>
-    <!-- <header>
-      <div class="container-preto">
-        <div class="imagem-header">
-          <img src="/IMG/Terraco.jpg" alt="" id="Terraco" />
-        </div>
-        <div class="navegacao">
-          <nav class="nav">
-            <ul>
-              <li>
-                <a href="../index.html">Home</a>
-              </li>
-              <li>
-                <a href="sobre.html">Sobre nós</a>
-              </li>
-              <li>
-                <a href="cardapio.html">Cardápio</a>
-              </li>
-
-              <li>
-                <a href="eventos.html">Eventos</a>
-              </li>
-              <li>
-                <a href="Contatos.html">Contatos</a>
-              </li>
-              <li>
-                <a href="Pedidos.html">Pedidos</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-
-    <main>
-        <div class="container">
-        <h1>Pedidos</h1>
-        <ul class="items">
-            <li class="item">
-                <img src="../IMG/Camarao.png" alt="Produto 1">
-                <div class="item-info">
-                    <h3>Camarao</h3>
-                    <p class="item-quantidade">Quantidade: 1</p>
-                </div>
-                <p class="item-preco">R$ 17,00</p>
-                <div class="remove">
-                    <button>Remover</button>
-                </div>
-            </li>
-            <li class="item">
-                <img src="../IMG/Chopp.png" alt="Produto 2">
-                <div class="item-info">
-                    <h3>Choop</h3>
-                    <p class="item-quantidade">Quantidade: 1</p>
-                </div>
-                <p class="item-preco">R$ 10,99</p>
-                <div class="remove">
-                    <button>Remover</button>
-                </div>
-            </li>
-        </ul>
-        <div class="total">
-            <span>Total: R$ 27,99</span>
-        </div>
-        <div class="checkout">
-            <button>Finalizar Compra</button>
-        </div>
-    </div>
-
-    </main>
-      
-
-    <footer>
-      <div class="secoes">
-        <section class="informacoes">
-          <div class="info2">
-            <h3>Atendimento ao Cliente</h3>
-            <p>Email: atendimento@Terraço.com</p>
-            <p>Telefone: (11) 9 1234-5678 / (11) 9 8765-4321</p>
-            <p>Horário de Atendimento:Qua-Dom 11h-00h e Ter 17h-00h</p>
-          </div>
-        </section>
-        <hr class="divisao" />
-        <section class="contato">
-          <h1 class="empresa">Terraço©</h1>
-          <ul class="links">
-            <li><a class="link1" href="#">Início</a></li>
-            <li><a class="link2" href="/HTML/sobre.html">Sobre nós</a></li>
-          </ul>
-        </section>
-      </div>
-    </footer> -->
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos - Terraço Garanhuns</title>
+    <link rel="stylesheet" href="../CSS/globals.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/pedidos.css">
+</head>
+<body>
     <script>
-      window.addEventListener("load", main);
+        window.addEventListener("load", main);
 
-      function main() {
-        criarHeader();
-        criarMain();
-        criarFooter();
-      }
-
-      function criarHeader() {
-        const header = document.createElement("header");
-        const containerPreto = document.createElement("div");
-        const imagemHeader = document.createElement("div");
-        const imgHeader = document.createElement("img");
-        const navegacao = document.createElement("div");
-        const nav = document.createElement("nav");
-        const ul = document.createElement("ul");
-        const links = [
-          { texto: "Home", href: "../index.html" },
-          { texto: "Sobre nós", href: "sobre.html" },
-          { texto: "Cardápio", href: "cardapio.html" },
-          { texto: "Eventos", href: "eventos.html" },
-          { texto: "Contatos", href: "Contatos.html" },
-          { texto: "Pedidos", href: "Pedidos.html" },
-        ];
-        containerPreto.classList.add("container-preto");
-        navegacao.classList.add("navegacao");
-        nav.classList.add("nav");
-        imagemHeader.classList.add("imagem-header");
-        imgHeader.src = "../IMG/Terraco.jpg";
-        imgHeader.alt = "";
-        imgHeader.id = "Terraco";
-        imagemHeader.appendChild(imgHeader);
-        links.forEach(function (link) {
-          const li = document.createElement("li");
-          const a = document.createElement("a");
-          a.href = link.href;
-          a.textContent = link.texto;
-          li.appendChild(a);
-          ul.appendChild(li);
-        });
-
-        nav.appendChild(ul);
-        navegacao.appendChild(nav);
-
-        containerPreto.appendChild(imagemHeader);
-        containerPreto.appendChild(navegacao);
-        header.appendChild(containerPreto);
-
-        document.body.appendChild(header);
-      }
-
-      function criarMain() {
-        const main = document.createElement("main");
-        const container = document.createElement("div");
-        const titulo = document.createElement("h1");
-        const lista = document.createElement("ul");
-
-        const totalDiv = document.createElement("div");
-        const totalSpan = document.createElement("span");
-
-        const checkout = document.createElement("div");
-        const btnFinalizar = document.createElement("button");
-
-        container.className = "container";
-
-        titulo.textContent = "Pedidos";
-        container.appendChild(titulo);
-
-        const pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
-
-        let total = 0;
-        if (pedidos.length === 0) {
-          const itemVazio = document.createElement("li");
-          itemVazio.textContent = "Seu carrinho de pedidos está vazio.";
-          itemVazio.style.textAlign = "center";
-          lista.appendChild(itemVazio);
-        } else {
-          pedidos.forEach(function (pedido, index) {
-            // Adicionamos 'index' para saber qual item remover
-            const item = document.createElement("li");
-            const img = document.createElement("img");
-            const itemInfo = document.createElement("div");
-            const nome = document.createElement("h3");
-            const quantidade = document.createElement("p");
-            const preco = document.createElement("p");
-            const remover = document.createElement("div");
-            const btnRemover = document.createElement("button");
-
-            item.className = "item";
-            img.src = pedido.imagem;
-            img.alt = `Produto: ${pedido.nome}`;
-            itemInfo.className = "item-info";
-            nome.textContent = pedido.nome;
-            quantidade.className = "item-quantidade";
-            quantidade.textContent = `Quantidade: ${pedido.quantidade}`;
-            itemInfo.appendChild(nome);
-            itemInfo.appendChild(quantidade);
-            preco.className = "item-preco";
-            preco.textContent = `R$ ${(
-              parseInt(pedido.preco) * pedido.quantidade
-            )
-              .toFixed(2)
-              .replace(".", ",")}`;
-            remover.className = "remove";
-            btnRemover.textContent = "Remover";
-
-            // Evento para o botão de remover
-            btnRemover.addEventListener("click", function () {
-              removerItemDoPedido(index);
-            });
-
-            remover.appendChild(btnRemover);
-            item.appendChild(img);
-            item.appendChild(itemInfo);
-            item.appendChild(preco);
-            item.appendChild(remover);
-            lista.appendChild(item);
-
-            total += pedido.preco * pedido.quantidade;
-          });
+        function main() {
+            criarHeader();
+            criarMain();
+            criarFooter();
         }
 
-        container.appendChild(lista);
-        totalDiv.className = "total";
-        totalSpan.textContent = `Total: R$ ${total
-          .toFixed(2)
-          .replace(".", ",")}`;
-        checkout.className = "checkout";
-        btnFinalizar.textContent = "Finalizar Compra";
-        totalDiv.appendChild(totalSpan);
-        container.appendChild(totalDiv);
-        checkout.appendChild(btnFinalizar);
-        container.appendChild(checkout);
-        main.appendChild(container);
-        document.body.appendChild(main);
-      }
+        function criarHeader() {
+            const header = document.createElement("header");
+            const containerPreto = document.createElement("div");
+            const imagemHeader = document.createElement("div");
+            const imgHeader = document.createElement("img");
+            const navegacao = document.createElement("div");
+            const nav = document.createElement("nav");
+            const ul = document.createElement("ul");
+            const links = [
+                { texto: "Home", href: "../index.html" },
+                { texto: "Sobre nós", href: "sobre.html" },
+                { texto: "Cardápio", href: "cardapio.html" },
+                { texto: "Eventos", href: "eventos.html" },
+                { texto: "Contatos", href: "Contatos.html" },
+                { texto: "Pedidos", href: "Pedidos.html" }
+            ];
+            
+            containerPreto.classList.add("container-preto");
+            navegacao.classList.add("navegacao");
+            nav.classList.add("nav");
+            imagemHeader.classList.add("imagem-header");
+            imgHeader.src = "../IMG/Terraco.jpg";
+            imgHeader.alt = "Restaurante Terraço";
+            imgHeader.id = "Terraco";
+            imagemHeader.appendChild(imgHeader);
+            
+            links.forEach(function(link) {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.texto;
+                if(link.href === "Pedidos.html") {
+                    a.classList.add("ativo");
+                }
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
 
-      function removerItemDoPedido(index) {
-        // Pega a lista atual de pedidos
-        let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+            nav.appendChild(ul);
+            navegacao.appendChild(nav);
+            containerPreto.appendChild(imagemHeader);
+            containerPreto.appendChild(navegacao);
+            header.appendChild(containerPreto);
+            document.body.appendChild(header);
+        }
 
-        // Remove o item da lista usando seu índice (index)
-        pedidos.splice(index, 1);
+        function criarMain() {
+            const main = document.createElement("main");
+            const container = document.createElement("div");
+            const titulo = document.createElement("h1");
+            const lista = document.createElement("ul");
+            const totalDiv = document.createElement("div");
+            const totalSpan = document.createElement("span");
+            const checkout = document.createElement("div");
+            const btnFinalizar = document.createElement("button");
 
-        // Salva a nova lista (sem o item removido) no localStorage
-        localStorage.setItem("pedidos", JSON.stringify(pedidos));
+            container.className = "container-pedidos";
+            titulo.textContent = "Seu Pedido";
+            container.appendChild(titulo);
+            
+            lista.className = "lista-pedidos";
 
-        // Recarrega a página para que as mudanças apareçam
-        window.location.reload();
-      }
+            const pedidos = [
+                {
+                    id: 1,
+                    nome: "Churrasco Misto",
+                    descricao: "Picanha, linguiça, frango e costela",
+                    preco: 49.90,
+                    imagem: "../IMG/CarneBanner.jpg"
+                },
+                {
+                    id: 2,
+                    nome: "Costela na Brasa",
+                    descricao: "Costela bovina assada lentamente",
+                    preco: 59.90,
+                    imagem: "../IMG/Carnes.jpg"
+                },
+                {
+                    id: 3,
+                    nome: "Feijoada",
+                    descricao: "Tradicional feijoada completa",
+                    preco: 39.90,
+                    imagem: "../IMG/Carnes.jpg"
+                },
+                {
+                    id: 4,
+                    nome: "Porção de Frango",
+                    descricao: "Frango assado com tempero especial",
+                    preco: 29.90,
+                    imagem: "../IMG/Carnes.jpg"
+                }
+            ];
 
-      // Chame a função para criar a página de pedidos
-      criarMainPedidos();
-      function criarFooter() {
-        const footer = document.createElement("footer");
-        const secoes = document.createElement("div");
-        const informacoes = document.createElement("section");
-        const info2 = document.createElement("div");
-        const h3Info = document.createElement("h3");
-        const pEmail = document.createElement("p");
-        const pTelefone = document.createElement("p");
-        const pHorario = document.createElement("p");
-        const divisao = document.createElement("hr");
-        const contato = document.createElement("section");
-        const h1Empresa = document.createElement("h1");
-        const ulLinks = document.createElement("ul");
-        const links = [
-          { texto: "Início", href: "#", classe: "link1" },
-          { texto: "Sobre nós", href: "sobre.html", classe: "link2" },
-        ];
+            pedidos.forEach(function(pedido) {
+                const li = document.createElement("li");
+                li.className = "item-pedido";
+                li.dataset.id = pedido.id;
+                li.innerHTML = `
+                    <img src="${pedido.imagem}" alt="${pedido.nome}">
+                    <div class="info-item">
+                        <h3>${pedido.nome}</h3>
+                        <p>${pedido.descricao}</p>
+                    </div>
+                    <div class="controle-quantidade">
+                        <button class="btn-quantidade menos">-</button>
+                        <span class="quantidade">1</span>
+                        <button class="btn-quantidade mais">+</button>
+                    </div>
+                    <div class="preco-item">R$ ${pedido.preco.toFixed(2)}</div>
+                    <button class="btn-remover">Remover</button>
+                `;
+                lista.appendChild(li);
+            });
 
-        secoes.classList.add("secoes");
-        informacoes.classList.add("informacoes");
-        info2.classList.add("info2");
-        divisao.classList.add("divisao");
-        contato.classList.add("contato");
-        h1Empresa.classList.add("empresa");
-        divisao.classList.add("divisao");
-        contato.classList.add("contato");
-        h1Empresa.classList.add("empresa");
-        ulLinks.classList.add("links");
+            container.appendChild(lista);
+            
+            totalDiv.className = "total";
+            totalSpan.id = "total-pedido";
+            totalSpan.textContent = "R$ 0,00";
+            totalDiv.innerHTML = "<span>Total:</span>";
+            totalDiv.appendChild(totalSpan);
+            container.appendChild(totalDiv);
 
-        h3Info.textContent = "Atendimento ao Cliente";
-        pEmail.textContent = "Email: atendimento@Terraço.com";
-        pTelefone.textContent = "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321";
-        pHorario.textContent =
-          "Horário de Atendimento:Qua-Dom 11h-00h e Ter 17h-00h";
-        h1Empresa.textContent = "Terraço©";
+            checkout.className = "checkout";
+            btnFinalizar.id = "finalizar-pedido";
+            btnFinalizar.className = "btn-primario";
+            btnFinalizar.textContent = "Finalizar Pedido";
+            checkout.appendChild(btnFinalizar);
+            container.appendChild(checkout);
 
-        info2.appendChild(h3Info);
-        info2.appendChild(pEmail);
-        info2.appendChild(pTelefone);
-        info2.appendChild(pHorario);
-        informacoes.appendChild(info2);
+            main.appendChild(container);
+            document.body.appendChild(main);
 
-        links.forEach(function (link) {
-          const li = document.createElement("li");
-          const a = document.createElement("a");
-          a.classList.add(link.classe);
-          a.href = link.href;
-          a.textContent = link.texto;
-          li.appendChild(a);
-          ulLinks.appendChild(li);
-        });
+            // Adiciona eventos após criar os elementos
+            adicionarEventos();
+        }
 
-        contato.appendChild(h1Empresa);
-        contato.appendChild(ulLinks);
-        secoes.appendChild(informacoes);
-        secoes.appendChild(divisao);
-        secoes.appendChild(contato);
-        footer.appendChild(secoes);
+        function adicionarEventos() {
+            document.querySelectorAll(".btn-quantidade").forEach(btn => {
+                btn.addEventListener("click", alterarQuantidade);
+            });
 
-        document.body.appendChild(footer);
-      }
+            document.querySelectorAll(".btn-remover").forEach(btn => {
+                btn.addEventListener("click", removerItem);
+            });
+
+            document.getElementById("finalizar-pedido").addEventListener("click", finalizarPedido);
+        }
+
+        function alterarQuantidade(e) {
+            const item = e.target.closest(".item-pedido");
+            const quantidadeElement = item.querySelector(".quantidade");
+            const precoElement = item.querySelector(".preco-item");
+            let quantidade = parseInt(quantidadeElement.textContent);
+            const precoUnitario = parseFloat(item.querySelector(".preco-item").textContent.replace("R$ ", "")) / quantidade;
+
+            if(e.target.classList.contains("mais")) {
+                quantidade++;
+            } else if(e.target.classList.contains("menos") && quantidade > 1) {
+                quantidade--;
+            }
+
+            quantidadeElement.textContent = quantidade;
+            precoElement.textContent = "R$ " + (precoUnitario * quantidade).toFixed(2);
+            calcularTotal();
+        }
+
+        function removerItem(e) {
+            e.target.closest(".item-pedido").remove();
+            calcularTotal();
+        }
+
+        function calcularTotal() {
+            let total = 0;
+            document.querySelectorAll(".item-pedido").forEach(item => {
+                const precoTexto = item.querySelector(".preco-item").textContent;
+                const preco = parseFloat(precoTexto.replace("R$ ", ""));
+                total += preco;
+            });
+            document.getElementById("total-pedido").textContent = "R$ " + total.toFixed(2).replace(".", ",");
+        }
+
+        function finalizarPedido() {
+            const total = document.getElementById("total-pedido").textContent;
+            if(total === "R$ 0,00") {
+                alert("Adicione itens ao seu pedido antes de finalizar!");
+                return;
+            }
+            alert("Pedido finalizado!\n" + total + "\nObrigado por escolher o Terraço Garanhuns!");
+        }
+
+        function criarFooter() {
+            const footer = document.createElement("footer");
+            const secoes = document.createElement("div");
+            const informacoes = document.createElement("section");
+            const info2 = document.createElement("div");
+            const h3Info = document.createElement("h3");
+            const pEmail = document.createElement("p");
+            const pTelefone = document.createElement("p");
+            const pHorario = document.createElement("p");
+            const divisao = document.createElement("hr");
+            const contato = document.createElement("section");
+            const h1Empresa = document.createElement("h1");
+            const ulLinks = document.createElement("ul");
+            const links = [
+                { texto: "Início", href: "#", classe: "link1" },
+                { texto: "Sobre nós", href: "sobre.html", classe: "link2" }
+            ];
+
+            secoes.classList.add("secoes");
+            informacoes.classList.add("informacoes");
+            info2.classList.add("info2");
+            divisao.classList.add("divisao");
+            contato.classList.add("contato");
+            h1Empresa.classList.add("empresa");
+            ulLinks.classList.add("links");
+
+            h3Info.textContent = "Atendimento ao Cliente";
+            pEmail.textContent = "Email: atendimento@Terraço.com";
+            pTelefone.textContent = "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321";
+            pHorario.textContent = "Horário de Atendimento: Qua-Dom 11h-00h e Ter 17h-00h";
+            h1Empresa.textContent = "Terraço©";
+
+            info2.appendChild(h3Info);
+            info2.appendChild(pEmail);
+            info2.appendChild(pTelefone);
+            info2.appendChild(pHorario);
+            informacoes.appendChild(info2);
+
+            links.forEach(function(link) {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.classList.add(link.classe);
+                a.href = link.href;
+                a.textContent = link.texto;
+                li.appendChild(a);
+                ulLinks.appendChild(li);
+            });
+
+            contato.appendChild(h1Empresa);
+            contato.appendChild(ulLinks);
+            secoes.appendChild(informacoes);
+            secoes.appendChild(divisao);
+            secoes.appendChild(contato);
+            footer.appendChild(secoes);
+
+            document.body.appendChild(footer);
+        }
     </script>
-  </body>
+</body>
 </html>
