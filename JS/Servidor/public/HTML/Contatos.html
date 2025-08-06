@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/CSS/globals.css" />
-    <link rel="stylesheet" href="/CSS/header.css" />
-    <link rel="stylesheet" href="/CSS/footer.css" />
-    <link rel="stylesheet" href="/CSS/contatos.css" />
+    <link rel="stylesheet" href="../CSS/globals.css" />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <link rel="stylesheet" href="../CSS/footer.css" />
+    <link rel="stylesheet" href="../CSS/contatos.css" />
     <title>Contatos</title>
   </head>
 
@@ -93,48 +93,47 @@
         </section>
       </div>
     </footer> -->
-  <script>
-    window.addEventListener("load", main);
+    <script>
+      window.addEventListener("load", main);
 
-    function main() {
+      function main() {
         criarHeader();
         criarMain();
         criarFooter();
-        
-    }
+      }
 
-    function criarHeader() {
-      const header = document.createElement("header");
-      const containerPreto = document.createElement("div");
-      const imagemHeader = document.createElement("div");
-      const imgHeader = document.createElement("img");
-      const navegacao = document.createElement("div");
-      const nav = document.createElement("nav");
-      const ul = document.createElement("ul");
-      const links = [
+      function criarHeader() {
+        const header = document.createElement("header");
+        const containerPreto = document.createElement("div");
+        const imagemHeader = document.createElement("div");
+        const imgHeader = document.createElement("img");
+        const navegacao = document.createElement("div");
+        const nav = document.createElement("nav");
+        const ul = document.createElement("ul");
+        const links = [
           { texto: "Home", href: "../index.html" },
           { texto: "Sobre nós", href: "sobre.html" },
           { texto: "Cardápio", href: "cardapio.html" },
           { texto: "Eventos", href: "eventos.html" },
           { texto: "Contatos", href: "Contatos.html" },
-          { texto: "Pedidos", href: "Pedidos.html"}
-      ];
-      containerPreto.classList.add("container-preto");
-      navegacao.classList.add("navegacao");
-      nav.classList.add("nav");
-      imagemHeader.classList.add("imagem-header");
-      imgHeader.src = "/IMG/Terraco.jpg";
-      imgHeader.alt = "";
-      imgHeader.id = "Terraco";
-      imagemHeader.appendChild(imgHeader);
-      links.forEach(function(link) {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = link.href;
-        a.textContent = link.texto;
-        li.appendChild(a);
-        ul.appendChild(li);
-      });
+          { texto: "Pedidos", href: "Pedidos.html" },
+        ];
+        containerPreto.classList.add("container-preto");
+        navegacao.classList.add("navegacao");
+        nav.classList.add("nav");
+        imagemHeader.classList.add("imagem-header");
+        imgHeader.src = "/IMG/Terraco.jpg";
+        imgHeader.alt = "";
+        imgHeader.id = "Terraco";
+        imagemHeader.appendChild(imgHeader);
+        links.forEach(function (link) {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = link.href;
+          a.textContent = link.texto;
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
 
         nav.appendChild(ul);
         navegacao.appendChild(nav);
@@ -144,114 +143,132 @@
         header.appendChild(containerPreto);
 
         document.body.appendChild(header);
-    }
+      }
 
-function criarMain() {
-    const main = document.createElement("main");
-    const divContato = document.createElement("div");
-    const h2 = document.createElement("h2");
+      function criarMain() {
+        const main = document.createElement("main");
+        const divContato = document.createElement("div");
+        const h2 = document.createElement("h2");
 
-    const divSocial = document.createElement("div");
-    const tituloSocial = document.createElement("h2");
+        const divSocial = document.createElement("div");
+        const tituloSocial = document.createElement("h2");
 
-    const contatos = [
-        { imagem: "/IMG/Email.png", texto: "Email: atendimento@Terraço.com" },
-        { imagem: "/IMG/Phone.png", texto: "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321" },
-        { imagem: "/IMG/House.png", texto: "Endereço: Av. Rui Barbosa, 1070 - Heliópolis, Garanhuns." }
-    ];
-    const socialLinks = [
-        { href: "https://m.facebook.com/terracoChopperia/", imgSrc: "/IMG/Facebook.png", alt: "Facebook" },
-        { href: "https://www.instagram.com/terracogaranhuns", imgSrc: "/IMG/Instagram.png", alt: "Instagram" },
-        { href: "https://api.whatsapp.com/send?phone=5587999984126", imgSrc: "/IMG/WhatsApp.png", alt: "WhatsApp" }
-    ];
+        const contatos = [
+          { imagem: "/IMG/Email.png", texto: "Email: atendimento@Terraço.com" },
+          {
+            imagem: "/IMG/Phone.png",
+            texto: "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321",
+          },
+          {
+            imagem: "/IMG/House.png",
+            texto: "Endereço: Av. Rui Barbosa, 1070 - Heliópolis, Garanhuns.",
+          },
+        ];
+        const socialLinks = [
+          {
+            href: "https://m.facebook.com/terracoChopperia/",
+            imgSrc: "/IMG/Facebook.png",
+            alt: "Facebook",
+          },
+          {
+            href: "https://www.instagram.com/terracogaranhuns",
+            imgSrc: "/IMG/Instagram.png",
+            alt: "Instagram",
+          },
+          {
+            href: "https://api.whatsapp.com/send?phone=5587999984126",
+            imgSrc: "/IMG/WhatsApp.png",
+            alt: "WhatsApp",
+          },
+        ];
 
-    main.classList.add("main-contatos")
-    divContato.classList.add("contat")
-    h2.textContent = "Atendimento ao Cliente"
-    divContato.appendChild(h2)
+        main.classList.add("main-contatos");
+        divContato.classList.add("contat");
+        h2.textContent = "Atendimento ao Cliente";
+        divContato.appendChild(h2);
 
-    divSocial.classList.add("social-icons")
-    tituloSocial.textContent = "Nos siga nas redes sociais"
-    divSocial.appendChild(tituloSocial)
+        divSocial.classList.add("social-icons");
+        tituloSocial.textContent = "Nos siga nas redes sociais";
+        divSocial.appendChild(tituloSocial);
 
-    contatos.forEach(function(contato) {
-        const p = document.createElement("p")
-        const img = document.createElement("img")
-        img.src = contato.imagem;
-        img.alt = contato.texto.split(":")[0]
+        contatos.forEach(function (contato) {
+          const p = document.createElement("p");
+          const img = document.createElement("img");
+          img.src = contato.imagem;
+          img.alt = contato.texto.split(":")[0];
 
-        p.appendChild(img)
-        p.appendChild(document.createTextNode(contato.texto))
-        divContato.appendChild(p)
-    });
-    socialLinks.forEach(function(link){
-        const a = document.createElement("a")
-        const img = document.createElement("img")
+          p.appendChild(img);
+          p.appendChild(document.createTextNode(contato.texto));
+          divContato.appendChild(p);
+        });
+        socialLinks.forEach(function (link) {
+          const a = document.createElement("a");
+          const img = document.createElement("img");
 
-        a.href = link.href
-        img.src = link.imgSrc
-        img.alt = link.alt
+          a.href = link.href;
+          img.src = link.imgSrc;
+          img.alt = link.alt;
 
-        a.appendChild(img)
-        a.appendChild(document.createTextNode(link.alt))
-        divSocial.appendChild(a)
-    });
+          a.appendChild(img);
+          a.appendChild(document.createTextNode(link.alt));
+          divSocial.appendChild(a);
+        });
 
-    main.appendChild(divContato)
-    main.appendChild(divSocial)
-    document.body.appendChild(main)
-}
+        main.appendChild(divContato);
+        main.appendChild(divSocial);
+        document.body.appendChild(main);
+      }
 
-    function criarFooter() {
-
-        const footer = document.createElement("footer")
-        const secoes = document.createElement("div")
-        const informacoes = document.createElement("section")
-        const info2 = document.createElement("div")
-        const h3Info = document.createElement("h3")
-        const pEmail = document.createElement("p")
-        const pTelefone = document.createElement("p")
-        const pHorario = document.createElement("p")
+      function criarFooter() {
+        const footer = document.createElement("footer");
+        const secoes = document.createElement("div");
+        const informacoes = document.createElement("section");
+        const info2 = document.createElement("div");
+        const h3Info = document.createElement("h3");
+        const pEmail = document.createElement("p");
+        const pTelefone = document.createElement("p");
+        const pHorario = document.createElement("p");
         const divisao = document.createElement("hr");
         const contato = document.createElement("section");
         const h1Empresa = document.createElement("h1");
         const ulLinks = document.createElement("ul");
         const links = [
-            { texto: "Início", href: "#", classe: "link1" },
-            { texto: "Sobre nós", href: "sobre.html", classe: "link2" },
+          { texto: "Início", href: "#", classe: "link1" },
+          { texto: "Sobre nós", href: "sobre.html", classe: "link2" },
         ];
 
-        secoes.classList.add("secoes")
-        informacoes.classList.add("informacoes")
-        info2.classList.add("info2")
+        secoes.classList.add("secoes");
+        informacoes.classList.add("informacoes");
+        info2.classList.add("info2");
         divisao.classList.add("divisao");
-        contato.classList.add("contato")
+        contato.classList.add("contato");
         h1Empresa.classList.add("empresa");
         divisao.classList.add("divisao");
-        contato.classList.add("contato")
+        contato.classList.add("contato");
         h1Empresa.classList.add("empresa");
-        ulLinks.classList.add("links")
+        ulLinks.classList.add("links");
 
-        h3Info.textContent = "Atendimento ao Cliente"
-        pEmail.textContent = "Email: atendimento@Terraço.com"
-        pTelefone.textContent = "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321"
-        pHorario.textContent = "Horário de Atendimento:Qua-Dom 11h-00h e Ter 17h-00h"
+        h3Info.textContent = "Atendimento ao Cliente";
+        pEmail.textContent = "Email: atendimento@Terraço.com";
+        pTelefone.textContent = "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321";
+        pHorario.textContent =
+          "Horário de Atendimento:Qua-Dom 11h-00h e Ter 17h-00h";
         h1Empresa.textContent = "Terraço©";
 
-        info2.appendChild(h3Info)
-        info2.appendChild(pEmail)
-        info2.appendChild(pTelefone)
-        info2.appendChild(pHorario)
-        informacoes.appendChild(info2)
-  
-        links.forEach(function(link){
-            const li = document.createElement("li");
-            const a = document.createElement("a");
-            a.classList.add(link.classe);
-            a.href = link.href;
-            a.textContent = link.texto;
-            li.appendChild(a);
-            ulLinks.appendChild(li);
+        info2.appendChild(h3Info);
+        info2.appendChild(pEmail);
+        info2.appendChild(pTelefone);
+        info2.appendChild(pHorario);
+        informacoes.appendChild(info2);
+
+        links.forEach(function (link) {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.classList.add(link.classe);
+          a.href = link.href;
+          a.textContent = link.texto;
+          li.appendChild(a);
+          ulLinks.appendChild(li);
         });
 
         contato.appendChild(h1Empresa);
@@ -262,9 +279,7 @@ function criarMain() {
         footer.appendChild(secoes);
 
         document.body.appendChild(footer);
-    }
-
-
+      }
     </script>
   </body>
 </html>
