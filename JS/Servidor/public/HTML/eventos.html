@@ -90,59 +90,53 @@
   <script>
     window.addEventListener("load", main);
 
-function main() {
-    criarHeader();
-    criarMain();
-    criarFooter();
-}
+    function main() {
+        criarHeader();
+        criarMain();
+        criarFooter();
+    }
 
-function criarHeader() {
-    const header = document.createElement("header");
-    const containerPreto = document.createElement("div");
-    containerPreto.classList.add("container-preto");
-
-    const imagemHeader = document.createElement("div");
-    imagemHeader.classList.add("imagem-header");
-    const imgHeader = document.createElement("img");
-    imgHeader.src = "/IMG/Terraco.jpg";
-    imgHeader.alt = "";
-    imgHeader.id = "Terraco";
-    imagemHeader.appendChild(imgHeader);
-
-    const navegacao = document.createElement("div");
-    navegacao.classList.add("navegacao");
-
-    const nav = document.createElement("nav");
-    nav.classList.add("nav");
-
-    const ul = document.createElement("ul");
-    const links = [
-        { texto: "Home", href: "../index.html" },
-        { texto: "Sobre nós", href: "sobre.html" },
-        { texto: "Cardápio", href: "cardapio.html" },
-        { texto: "Eventos", href: "eventos.html" },
-        { texto: "Contatos", href: "Contatos.html" },
-    ];
-
-    links.forEach(function(link) {
+    function criarHeader() {
+      const header = document.createElement("header");
+      const containerPreto = document.createElement("div");
+      const imagemHeader = document.createElement("div");
+      const imgHeader = document.createElement("img");
+      const navegacao = document.createElement("div");
+      const nav = document.createElement("nav");
+      const ul = document.createElement("ul");
+      const links = [
+          { texto: "Home", href: "../index.html" },
+          { texto: "Sobre nós", href: "sobre.html" },
+          { texto: "Cardápio", href: "cardapio.html" },
+          { texto: "Eventos", href: "eventos.html" },
+          { texto: "Contatos", href: "Contatos.html" },
+      ];
+      containerPreto.classList.add("container-preto");
+      navegacao.classList.add("navegacao");
+      nav.classList.add("nav");
+      imagemHeader.classList.add("imagem-header");
+      imgHeader.src = "/IMG/Terraco.jpg";
+      imgHeader.alt = "";
+      imgHeader.id = "Terraco";
+      imagemHeader.appendChild(imgHeader);
+      links.forEach(function(link) {
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.href = link.href;
         a.textContent = link.texto;
         li.appendChild(a);
         ul.appendChild(li);
-    });
+      });
 
-    nav.appendChild(ul);
-    navegacao.appendChild(nav);
+        nav.appendChild(ul);
+        navegacao.appendChild(nav);
 
-    containerPreto.appendChild(imagemHeader);
-    containerPreto.appendChild(navegacao);
-    header.appendChild(containerPreto);
+        containerPreto.appendChild(imagemHeader);
+        containerPreto.appendChild(navegacao);
+        header.appendChild(containerPreto);
 
-    document.body.appendChild(header);
-}
-
+        document.body.appendChild(header);
+    }
 function criarMain() {
     const main = document.createElement("main");
 
@@ -191,75 +185,67 @@ function criarMain() {
     main.appendChild(eventosList);
     document.body.appendChild(main);
 }
+    function criarFooter() {
 
-function criarFooter() {
-    const footer = document.createElement("footer");
-    const secoes = document.createElement("div");
-    secoes.classList.add("secoes");
+        const footer = document.createElement("footer")
+        const secoes = document.createElement("div")
+        const informacoes = document.createElement("section")
+        const info2 = document.createElement("div")
+        const h3Info = document.createElement("h3")
+        const pEmail = document.createElement("p")
+        const pTelefone = document.createElement("p")
+        const pHorario = document.createElement("p")
+        const divisao = document.createElement("hr");
+        const contato = document.createElement("section");
+        const h1Empresa = document.createElement("h1");
+        const ulLinks = document.createElement("ul");
+        const links = [
+            { texto: "Início", href: "#", classe: "link1" },
+            { texto: "Sobre nós", href: "sobre.html", classe: "link2" },
+        ];
 
-    const informacoes = document.createElement("section");
-    informacoes.classList.add("informacoes");
+        secoes.classList.add("secoes")
+        informacoes.classList.add("informacoes")
+        info2.classList.add("info2")
+        divisao.classList.add("divisao");
+        contato.classList.add("contato")
+        h1Empresa.classList.add("empresa");
+        divisao.classList.add("divisao");
+        contato.classList.add("contato")
+        h1Empresa.classList.add("empresa");
+        ulLinks.classList.add("links")
 
-    const info2 = document.createElement("div");
-    info2.classList.add("info2");
+        h3Info.textContent = "Atendimento ao Cliente"
+        pEmail.textContent = "Email: atendimento@Terraço.com"
+        pTelefone.textContent = "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321"
+        pHorario.textContent = "Horário de Atendimento:Qua-Dom 11h-00h e Ter 17h-00h"
+        h1Empresa.textContent = "Terraço©";
 
-    const h3Info = document.createElement("h3");
-    h3Info.textContent = "Atendimento ao Cliente";
+        info2.appendChild(h3Info)
+        info2.appendChild(pEmail)
+        info2.appendChild(pTelefone)
+        info2.appendChild(pHorario)
+        informacoes.appendChild(info2)
+  
+        links.forEach(function(link){
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.classList.add(link.classe);
+            a.href = link.href;
+            a.textContent = link.texto;
+            li.appendChild(a);
+            ulLinks.appendChild(li);
+        });
 
-    const pEmail = document.createElement("p");
-    pEmail.textContent = "Email: atendimento@Terraço.com";
+        contato.appendChild(h1Empresa);
+        contato.appendChild(ulLinks);
+        secoes.appendChild(informacoes);
+        secoes.appendChild(divisao);
+        secoes.appendChild(contato);
+        footer.appendChild(secoes);
 
-    const pTelefone = document.createElement("p");
-    pTelefone.textContent = "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321";
-
-    const pHorario = document.createElement("p");
-    pHorario.textContent = "Horário de Atendimento:Qua-Dom 11h-00h e Ter 17h-00h";
-
-    info2.appendChild(h3Info);
-    info2.appendChild(pEmail);
-    info2.appendChild(pTelefone);
-    info2.appendChild(pHorario);
-
-    informacoes.appendChild(info2);
-
-    const divisao = document.createElement("hr");
-    divisao.classList.add("divisao");
-
-    const contato = document.createElement("section");
-    contato.classList.add("contato");
-
-    const h1Empresa = document.createElement("h1");
-    h1Empresa.classList.add("empresa");
-    h1Empresa.textContent = "Terraço©";
-
-    const ulLinks = document.createElement("ul");
-    ulLinks.classList.add("links");
-
-    const links = [
-        { texto: "Início", href: "../index.html", classe: "link1" },
-        { texto: "Sobre nós", href: "sobre.html", classe: "link2" },
-    ];
-
-    links.forEach(function(link) {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.classList.add(link.classe);
-        a.href = link.href;
-        a.textContent = link.texto;
-        li.appendChild(a);
-        ulLinks.appendChild(li);
-    });
-
-    contato.appendChild(h1Empresa);
-    contato.appendChild(ulLinks);
-
-    secoes.appendChild(informacoes);
-    secoes.appendChild(divisao);
-    secoes.appendChild(contato);
-
-    footer.appendChild(secoes);
-    document.body.appendChild(footer);
-}
+        document.body.appendChild(footer);
+    }
 
   </script>
 </html>
