@@ -138,9 +138,9 @@
     </footer>
   </body> -->
 
-  <script>
-    window.addEventListener("load", main);
-    function main() {
+    <script>
+      window.addEventListener("load", main);
+      function main() {
         criarHeader();
         criarMain();
         criarFooter();
@@ -166,7 +166,7 @@
         navegacao.classList.add("navegacao");
         nav.classList.add("nav");
         imagemHeader.classList.add("imagem-header");
-        imgHeader.src = "/IMG/Terraco.jpg";
+        imgHeader.src = "../IMG/Terraco.jpg";
         imgHeader.alt = "";
         imgHeader.id = "Terraco";
         imagemHeader.appendChild(imgHeader);
@@ -188,7 +188,7 @@
 
         document.body.appendChild(header);
       }
-      
+
       function criarMain() {
       const main = document.createElement("main")
       const ul = document.createElement("ul")
@@ -270,16 +270,15 @@
       document.body.appendChild(main);
     }
 
-    function criarFooter() {
-
-        const footer = document.createElement("footer")
-        const secoes = document.createElement("div")
-        const informacoes = document.createElement("section")
-        const info2 = document.createElement("div")
-        const h3Info = document.createElement("h3")
-        const pEmail = document.createElement("p")
-        const pTelefone = document.createElement("p")
-        const pHorario = document.createElement("p")
+      function criarFooter() {
+        const footer = document.createElement("footer");
+        const secoes = document.createElement("div");
+        const informacoes = document.createElement("section");
+        const info2 = document.createElement("div");
+        const h3Info = document.createElement("h3");
+        const pEmail = document.createElement("p");
+        const pTelefone = document.createElement("p");
+        const pHorario = document.createElement("p");
         const divisao = document.createElement("hr");
         const contato = document.createElement("section");
         const h1Empresa = document.createElement("h1");

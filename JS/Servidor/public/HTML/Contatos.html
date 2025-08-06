@@ -122,7 +122,7 @@
         navegacao.classList.add("navegacao");
         nav.classList.add("nav");
         imagemHeader.classList.add("imagem-header");
-        imgHeader.src = "/IMG/Terraco.jpg";
+        imgHeader.src = "../IMG/Terraco.jpg";
         imgHeader.alt = "";
         imgHeader.id = "Terraco";
         imagemHeader.appendChild(imgHeader);
@@ -154,30 +154,33 @@
         const tituloSocial = document.createElement("h2");
 
         const contatos = [
-          { imagem: "/IMG/Email.png", texto: "Email: atendimento@Terraço.com" },
           {
-            imagem: "/IMG/Phone.png",
+            imagem: "../IMG/Email.png",
+            texto: "Email: atendimento@Terraço.com",
+          },
+          {
+            imagem: "../IMG/Phone.png",
             texto: "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321",
           },
           {
-            imagem: "/IMG/House.png",
+            imagem: "../IMG/House.png",
             texto: "Endereço: Av. Rui Barbosa, 1070 - Heliópolis, Garanhuns.",
           },
         ];
         const socialLinks = [
           {
             href: "https://m.facebook.com/terracoChopperia/",
-            imgSrc: "/IMG/Facebook.png",
+            imgSrc: "../IMG/Facebook.png",
             alt: "Facebook",
           },
           {
             href: "https://www.instagram.com/terracogaranhuns",
-            imgSrc: "/IMG/Instagram.png",
+            imgSrc: "../IMG/Instagram.png",
             alt: "Instagram",
           },
           {
             href: "https://api.whatsapp.com/send?phone=5587999984126",
-            imgSrc: "/IMG/WhatsApp.png",
+            imgSrc: "../IMG/WhatsApp.png",
             alt: "WhatsApp",
           },
         ];
