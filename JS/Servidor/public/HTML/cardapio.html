@@ -140,7 +140,6 @@
 
   <script>
     window.addEventListener("load", main);
-
     function main() {
         criarHeader();
         criaMain();
@@ -190,118 +189,153 @@
         document.body.appendChild(header);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    function criaMain() {
-        const path = window.location.pathname;
-
-        if (path.includes("index.html")) {
-            criaMainIndex();
-        } else if (path.includes("sobre.html")) {
-            criaMainSobre();
-        } else if (path.includes("cardapio.html")) {
-            criaMainCardapio();
-        }
-    }
-
-    function criaMainIndex() {
-        const main = document.createElement("main");
-
-        const imagemComida = document.createElement("img");
-        imagemComida.src = "/IMG/CarneBanner.png";
-        imagemComida.alt = "Foto de um prato de carne";
-        imagemComida.id = "comida";
-
-        const section = document.createElement("section");
-
-        const destaque = document.createElement("div");
-        destaque.classList.add("destaque");
-        const h3 = document.createElement("h3");
-        h3.textContent = "Um restaurante com a melhor culinária da cidade, venha desfrutar de uma boa música ao vivo e uma boa comida.";
-        destaque.appendChild(h3);
-
-        const servicos = document.createElement("div");
-        servicos.classList.add("servicos");
-        const p = document.createElement("p");
-        p.textContent = "Aqui, a tradição da boa churrascaria se une à alegria de uma chopperia vibrante, criando a combinação perfeita para quem busca excelência em cada detalhe.";
-        servicos.appendChild(p);
-
-        section.appendChild(destaque);
-        section.appendChild(servicos);
-
-        main.appendChild(imagemComida);
-        main.appendChild(section);
-
-        document.body.appendChild(main);
-    }
-
-    function criaMainSobre() {
-        const main = document.createElement("main");
-
-        const section = document.createElement("section");
-
-        const h2 = document.createElement("h2");
-        h2.textContent = "Sobre nós";
-        section.appendChild(h2);
-
-        const p = document.createElement("p");
-        p.textContent = "Somos um restaurante especializado em churrascos e chopperia. Nossa missão é proporcionar uma experiência única de sabor e entretenimento.";
-        section.appendChild(p);
-
-        main.appendChild(section);
-        document.body.appendChild(main);
-    }
-
-    function criaMainCardapio() {
-        const main = document.createElement("main");
-
-        const section = document.createElement("section");
-
-        const h2 = document.createElement("h2");
-        h2.textContent = "Nosso Cardápio";
-        section.appendChild(h2);
-
-        const ul = document.createElement("ul");
-        const items = [
+    function criaMain(){
+      const main = createElement("main")
+      const ul = createElement("ul")
+      const li = createElement("li")
+      const a = createElement("a")
+      const img = createElement("img")
+      const nome = createElement("h2")
+      const descricao= createElement("p")
+      const items = [
             { nome: "Churrasco Misto", preco: "R$ 49,90" },
             { nome: "Costela na Brasa", preco: "R$ 59,90" },
             { nome: "Feijoada", preco: "R$ 39,90" },
             { nome: "Porção de Frango", preco: "R$ 29,90" },
         ];
 
-        items.forEach(function(item) {
-            const li = document.createElement("li");
-            li.textContent = `${item.nome} - ${item.preco}`;
-            ul.appendChild(li);
-        });
 
-        section.appendChild(ul);
-        main.appendChild(section);
 
-        document.body.appendChild(main);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function criaMain() {
+    //     const path = window.location.pathname;
+
+    //     if (path.includes("index.html")) {
+    //         criaMainIndex();
+    //     } else if (path.includes("sobre.html")) {
+    //         criaMainSobre();
+    //     } else if (path.includes("cardapio.html")) {
+    //         criaMainCardapio();
+    //     }
+    // }
+
+    // function criaMainIndex() {
+    //     const main = document.createElement("main");
+
+    //     const imagemComida = document.createElement("img");
+    //     imagemComida.src = "/IMG/CarneBanner.png";
+    //     imagemComida.alt = "Foto de um prato de carne";
+    //     imagemComida.id = "comida";
+
+    //     const section = document.createElement("section");
+
+    //     const destaque = document.createElement("div");
+    //     destaque.classList.add("destaque");
+    //     const h3 = document.createElement("h3");
+    //     h3.textContent = "Um restaurante com a melhor culinária da cidade, venha desfrutar de uma boa música ao vivo e uma boa comida.";
+    //     destaque.appendChild(h3);
+
+    //     const servicos = document.createElement("div");
+    //     servicos.classList.add("servicos");
+    //     const p = document.createElement("p");
+    //     p.textContent = "Aqui, a tradição da boa churrascaria se une à alegria de uma chopperia vibrante, criando a combinação perfeita para quem busca excelência em cada detalhe.";
+    //     servicos.appendChild(p);
+
+    //     section.appendChild(destaque);
+    //     section.appendChild(servicos);
+
+    //     main.appendChild(imagemComida);
+    //     main.appendChild(section);
+
+    //     document.body.appendChild(main);
+    // }
+
+    // function criaMainSobre() {
+    //     const main = document.createElement("main");
+
+    //     const section = document.createElement("section");
+
+    //     const h2 = document.createElement("h2");
+    //     h2.textContent = "Sobre nós";
+    //     section.appendChild(h2);
+
+    //     const p = document.createElement("p");
+    //     p.textContent = "Somos um restaurante especializado em churrascos e chopperia. Nossa missão é proporcionar uma experiência única de sabor e entretenimento.";
+    //     section.appendChild(p);
+
+    //     main.appendChild(section);
+    //     document.body.appendChild(main);
+    // }
+
+    // function criaMainCardapio() {
+    //     const main = document.createElement("main");
+
+    //     const section = document.createElement("section");
+
+    //     const h2 = document.createElement("h2");
+    //     h2.textContent = "Nosso Cardápio";
+    //     section.appendChild(h2);
+
+    //     const ul = document.createElement("ul");
+    //     const items = [
+    //         { nome: "Churrasco Misto", preco: "R$ 49,90" },
+    //         { nome: "Costela na Brasa", preco: "R$ 59,90" },
+    //         { nome: "Feijoada", preco: "R$ 39,90" },
+    //         { nome: "Porção de Frango", preco: "R$ 29,90" },
+    //     ];
+
+    //     items.forEach(function(item) {
+    //         const li = document.createElement("li");
+    //         li.textContent = `${item.nome} - ${item.preco}`;
+    //         ul.appendChild(li);
+    //     });
+
+    //     section.appendChild(ul);
+    //     main.appendChild(section);
+
+    //     document.body.appendChild(main);
+    // }
 
 
 
