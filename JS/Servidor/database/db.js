@@ -15,7 +15,7 @@ async function criarTabela() {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT,
             descricao TEXT,
-            valor REAL,
+            preco REAL,
             img TEXT
         )`
     )
