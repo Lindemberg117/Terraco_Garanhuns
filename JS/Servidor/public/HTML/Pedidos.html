@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../CSS/pedidos.css">
 </head>
 <body>
-    <header>
+    <!-- <header>
       <div class="container-preto">
         <div class="imagem-header">
           <img src="/IMG/Terraco.jpg" alt="" id="Terraco" />
@@ -100,7 +100,230 @@
           </ul>
         </section>
       </div>
-    </footer>
+    </footer> -->
     
+</body>
+<script>
+    window.addEventListener("load", main);
+
+    function main() {
+      criarHeader();
+      criarMain();
+      criarFooter();
+    }
+
+    function criarHeader() {
+      const header = document.createElement("header");
+      const containerPreto = document.createElement("div");
+      const imagemHeader = document.createElement("div");
+      const imgHeader = document.createElement("img");
+      const navegacao = document.createElement("div");
+      const nav = document.createElement("nav");
+      const ul = document.createElement("ul");
+      const links = [
+          { texto: "Home", href: "../index.html" },
+          { texto: "Sobre nós", href: "sobre.html" },
+          { texto: "Cardápio", href: "cardapio.html" },
+          { texto: "Eventos", href: "eventos.html" },
+          { texto: "Contatos", href: "Contatos.html" },
+          { texto: "Pedidos", href: "Pedidos.html"}
+      ];
+      containerPreto.classList.add("container-preto");
+      navegacao.classList.add("navegacao");
+      nav.classList.add("nav");
+      imagemHeader.classList.add("imagem-header");
+      imgHeader.src = "/IMG/Terraco.jpg";
+      imgHeader.alt = "";
+      imgHeader.id = "Terraco";
+      imagemHeader.appendChild(imgHeader);
+      links.forEach(function(link) {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = link.href;
+        a.textContent = link.texto;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+
+        nav.appendChild(ul);
+        navegacao.appendChild(nav);
+
+        containerPreto.appendChild(imagemHeader);
+        containerPreto.appendChild(navegacao);
+        header.appendChild(containerPreto);
+
+        document.body.appendChild(header);
+    }
+
+        
+
+        function criarMain() {
+            const main = document.createElement('main');
+            const container = document.createElement('div');
+            const titulo = document.createElement('h1');
+            const lista = document.createElement('ul');
+
+            const totalDiv = document.createElement('div')
+            const totalSpan = document.createElement('span')
+
+            const checkout = document.createElement('div')
+            const btnFinalizar = document.createElement('button')
+
+
+
+
+            container.className = 'container';
+
+            
+            titulo.textContent = 'Pedidos';
+            container.appendChild(titulo);
+
+            
+            lista.className = 'items';
+
+            let total = 0;
+            const pedidos = [
+            {
+                nome: 'Camarao',
+                imagem: '../IMG/Camarao.png',
+                quantidade: 1,
+                preco: 17.00
+            },
+            {
+                nome: 'Choop',
+                imagem: '../IMG/Chopp.png',
+                quantidade: 1,
+                preco: 10.99
+            }
+        ];
+
+            pedidos.forEach(function(pedido) {
+                const item = document.createElement('li')
+                const img = document.createElement('img')
+                const itemInfo = document.createElement('div')
+                const nome = document.createElement('h3')
+                const quantidade = document.createElement('p')
+                const preco = document.createElement('p')
+                
+                const remover = document.createElement('div')
+                
+                const btnRemover = document.createElement('button')
+
+                item.className = 'item';
+
+                
+                img.src = pedido.imagem;
+                img.alt = `Produto: ${pedido.nome}`;
+
+                
+                itemInfo.className = 'item-info';
+
+                
+                nome.textContent = pedido.nome;
+
+                quantidade.className = 'item-quantidade';
+                quantidade.textContent = `Quantidade: ${pedido.quantidade}`;
+
+                itemInfo.appendChild(nome);
+                itemInfo.appendChild(quantidade);
+
+                preco.className = 'item-preco';
+                preco.textContent = `R$ ${pedido.preco.toFixed(2)}`;
+
+                remover.className = 'remove';
+
+                btnRemover.textContent = 'Remover';
+                remover.appendChild(btnRemover);
+
+                item.appendChild(img);
+                item.appendChild(itemInfo);
+                item.appendChild(preco);
+                item.appendChild(remover);
+
+                lista.appendChild(item);
+
+                total += pedido.preco * pedido.quantidade;
+            })
+
+            container.appendChild(lista)
+            totalDiv.className = 'total'
+            totalSpan.textContent = `Total: R$ ${total.toFixed(2)}`
+            checkout.className = 'checkout'
+            btnFinalizar.textContent = 'Finalizar Compra'
+
+            totalDiv.appendChild(totalSpan);
+
+            container.appendChild(totalDiv);
+
+            checkout.appendChild(btnFinalizar);
+
+            container.appendChild(checkout);
+
+            main.appendChild(container);
+            document.body.appendChild(main)
+        }
+        function criarFooter() {
+
+        const footer = document.createElement("footer")
+        const secoes = document.createElement("div")
+        const informacoes = document.createElement("section")
+        const info2 = document.createElement("div")
+        const h3Info = document.createElement("h3")
+        const pEmail = document.createElement("p")
+        const pTelefone = document.createElement("p")
+        const pHorario = document.createElement("p")
+        const divisao = document.createElement("hr");
+        const contato = document.createElement("section");
+        const h1Empresa = document.createElement("h1");
+        const ulLinks = document.createElement("ul");
+        const links = [
+            { texto: "Início", href: "#", classe: "link1" },
+            { texto: "Sobre nós", href: "sobre.html", classe: "link2" },
+        ];
+
+        secoes.classList.add("secoes")
+        informacoes.classList.add("informacoes")
+        info2.classList.add("info2")
+        divisao.classList.add("divisao");
+        contato.classList.add("contato")
+        h1Empresa.classList.add("empresa");
+        divisao.classList.add("divisao");
+        contato.classList.add("contato")
+        h1Empresa.classList.add("empresa");
+        ulLinks.classList.add("links")
+
+        h3Info.textContent = "Atendimento ao Cliente"
+        pEmail.textContent = "Email: atendimento@Terraço.com"
+        pTelefone.textContent = "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321"
+        pHorario.textContent = "Horário de Atendimento:Qua-Dom 11h-00h e Ter 17h-00h"
+        h1Empresa.textContent = "Terraço©";
+
+        info2.appendChild(h3Info)
+        info2.appendChild(pEmail)
+        info2.appendChild(pTelefone)
+        info2.appendChild(pHorario)
+        informacoes.appendChild(info2)
+  
+        links.forEach(function(link){
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.classList.add(link.classe);
+            a.href = link.href;
+            a.textContent = link.texto;
+            li.appendChild(a);
+            ulLinks.appendChild(li);
+        });
+
+        contato.appendChild(h1Empresa);
+        contato.appendChild(ulLinks);
+        secoes.appendChild(informacoes);
+        secoes.appendChild(divisao);
+        secoes.appendChild(contato);
+        footer.appendChild(secoes);
+
+        document.body.appendChild(footer);
+    }
+
+    </script>
 </body>
 </html>
