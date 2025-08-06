@@ -189,86 +189,132 @@
         document.body.appendChild(header);
       }
 
-      function criarMain() {
-      const main = document.createElement("main")
-      const ul = document.createElement("ul")
-      ul.classList.add("comidas")
+    //   function criarMain() {
+    //   const main = document.createElement("main")
+    //   const ul = document.createElement("ul")
+    //   ul.classList.add("comidas")
 
-      const itensCardapio = [
-        {
-          nome: "Tripa",
-          imagem: "/IMG/Tripa.png",
-          descricao: "Tripa acebolada, crocante por fora e suculenta por dentro. Ideal para petiscar com os amigos!",
-          preco: "R$ 25,00"
-        },
-        {
-          nome: "Sushi",
-          imagem: "/IMG/Sushi.png",
-          descricao: "Seleção de sushis frescos preparados com ingredientes de qualidade e sabor oriental autêntico.",
-          preco: "R$ 39,90"
-        },
-        {
-          nome: "Camarão",
-          imagem: "/IMG/Camarao.png",
-          descricao: "Camarões grelhados temperados com ervas finas. Um toque do mar no seu prato!",
-          preco: "R$ 49,00"
-        },
-        {
-          nome: "Carnes",
-          imagem: "/IMG/Carnes.png",
-          descricao: "Variedade de cortes nobres como picanha, alcatra e fraldinha, preparados na brasa com todo o sabor do churrasco tradicional.",
-          preco: "R$ 59,90"
-        },
-        {
-          nome: "Chopp",
-          imagem: "/IMG/Chopp.png",
-          descricao: "Chopp gelado, cremoso e servido na medida para refrescar seus momentos!",
-          preco: "R$ 9,90"
-        },
-        {
-          nome: "Drinks",
-          imagem: "/IMG/Mojito.png",
-          descricao: "Drinks refrescantes e bem elaborados com frutas, hortelã e um toque especial!",
-          preco: "R$ 19,90"
-        },
-        {
-          nome: "Vinho",
-          imagem: "/IMG/Vinho.png",
-          descricao: "Vinhos selecionados para harmonizar com bons momentos. Tintos, brancos ou rosés — escolha o seu preferido!",
-          preco: "R$ 69,90"
-        }
-      ]
-      itensCardapio.forEach(function(item) {
-        const a = document.createElement("a")
-        const li = document.createElement("li")
-        const img = document.createElement("img")
-        const h2 = document.createElement("h2")
-        const p = document.createElement("p")
-        const preco = document.createElement("p")
-        const botao = document.createElement("button")
+    //   const itensCardapio = [
+    //     {
+    //       nome: "Tripa",
+    //       imagem: "/IMG/Tripa.png",
+    //       descricao: "Tripa acebolada, crocante por fora e suculenta por dentro. Ideal para petiscar com os amigos!",
+    //       preco: "R$ 25,00"
+    //     },
+    //     {
+    //       nome: "Sushi",
+    //       imagem: "/IMG/Sushi.png",
+    //       descricao: "Seleção de sushis frescos preparados com ingredientes de qualidade e sabor oriental autêntico.",
+    //       preco: "R$ 39,90"
+    //     },
+    //     {
+    //       nome: "Camarão",
+    //       imagem: "/IMG/Camarao.png",
+    //       descricao: "Camarões grelhados temperados com ervas finas. Um toque do mar no seu prato!",
+    //       preco: "R$ 49,00"
+    //     },
+    //     {
+    //       nome: "Carnes",
+    //       imagem: "/IMG/Carnes.png",
+    //       descricao: "Variedade de cortes nobres como picanha, alcatra e fraldinha, preparados na brasa com todo o sabor do churrasco tradicional.",
+    //       preco: "R$ 59,90"
+    //     },
+    //     {
+    //       nome: "Chopp",
+    //       imagem: "/IMG/Chopp.png",
+    //       descricao: "Chopp gelado, cremoso e servido na medida para refrescar seus momentos!",
+    //       preco: "R$ 9,90"
+    //     },
+    //     {
+    //       nome: "Drinks",
+    //       imagem: "/IMG/Mojito.png",
+    //       descricao: "Drinks refrescantes e bem elaborados com frutas, hortelã e um toque especial!",
+    //       preco: "R$ 19,90"
+    //     },
+    //     {
+    //       nome: "Vinho",
+    //       imagem: "/IMG/Vinho.png",
+    //       descricao: "Vinhos selecionados para harmonizar com bons momentos. Tintos, brancos ou rosés — escolha o seu preferido!",
+    //       preco: "R$ 69,90"
+    //     }
+    //   ]
+    //   itensCardapio.forEach(function(item) {
+    //     const a = document.createElement("a")
+    //     const li = document.createElement("li")
+    //     const img = document.createElement("img")
+    //     const h2 = document.createElement("h2")
+    //     const p = document.createElement("p")
+    //     const preco = document.createElement("p")
+    //     const botao = document.createElement("button")
 
-        a.href = "#"
-        li.classList.add("comida")
-        img.src = item.imagem
-        img.alt = `Imagem de ${item.nome}`
-        h2.textContent = item.nome
-        p.textContent = item.descricao
-        preco.classList.add("preco")
-        preco.textContent = `Preço: ${item.preco}`
-        botao.classList.add("botao-adicionar")
-        botao.textContent = "Adicionar aos pedidos"
+    //     a.href = "#"
+    //     li.classList.add("comida")
+    //     img.src = item.imagem
+    //     img.alt = `Imagem de ${item.nome}`
+    //     h2.textContent = item.nome
+    //     p.textContent = item.descricao
+    //     preco.classList.add("preco")
+    //     preco.textContent = `Preço: ${item.preco}`
+    //     botao.classList.add("botao-adicionar")
+    //     botao.textContent = "Adicionar aos pedidos"
   
-        li.appendChild(img);
-        li.appendChild(h2);
-        li.appendChild(p);
-        li.appendChild(preco);
-        li.appendChild(botao);
-        a.appendChild(li);
-        ul.appendChild(a);
-      });
-      main.appendChild(ul);
-      document.body.appendChild(main);
-    }
+    //     li.appendChild(img);
+    //     li.appendChild(h2);
+    //     li.appendChild(p);
+    //     li.appendChild(preco);
+    //     li.appendChild(botao);
+    //     a.appendChild(li);
+    //     ul.appendChild(a);
+    //   });
+    //   main.appendChild(ul);
+    //   document.body.appendChild(main);
+    // }
+
+      async function criarMain() {
+        const main = document.createElement("main");
+        const ul = document.createElement("ul");
+        ul.classList.add("comidas");
+
+        try {
+          const response = await fetch("http://localhost:3000/api/cardapio");
+          const itensCardapio = await response.json();
+
+          itensCardapio.forEach(item => {
+            const a = document.createElement("a");
+            const li = document.createElement("li");
+            const img = document.createElement("img");
+            const h2 = document.createElement("h2");
+            const p = document.createElement("p");
+            const preco = document.createElement("p");
+            const botao = document.createElement("button");
+
+            a.href = "#";
+            li.classList.add("comida");
+            img.src = item.img;
+            img.alt = `Imagem de ${item.nome}`;
+            h2.textContent = item.nome;
+            p.textContent = item.descricao;
+            preco.classList.add("preco");
+            preco.textContent = `Preço: R$ ${item.valor.toFixed(2).replace('.', ',')}`;
+            botao.classList.add("botao-adicionar");
+            botao.textContent = "Adicionar aos pedidos";
+
+            li.appendChild(img);
+            li.appendChild(h2);
+            li.appendChild(p);
+            li.appendChild(preco);
+            li.appendChild(botao);
+            a.appendChild(li);
+            ul.appendChild(a);
+          });
+
+          main.appendChild(ul);
+          document.body.appendChild(main);
+        } catch (error) {
+          console.error("Erro ao carregar o cardápio:", error);
+        }
+      }
+
 
       function criarFooter() {
         const footer = document.createElement("footer");

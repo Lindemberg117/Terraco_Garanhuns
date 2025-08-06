@@ -58,8 +58,14 @@ async function popularBanco() {
     for (let x = 0; x < cardapio.length; x++) {
         await db.run(
             `
-                INSERT INTO cardapio (nome,descricao, valor,img) VALUES (?,?)
-            `, [cardapio[x].nome,cardapio[x].descricao,cardapio[x].valor,cardapio[x].img]
+                INSERT INTO cardapio (nome,descricao, valor,img) VALUES (?,?,?,?)
+            `, 
+            [
+                cardapio[x].nome,
+                cardapio[x].descricao,
+                cardapio[x].preco,
+                cardapio[x].img
+            ]
         )
     }
 }
