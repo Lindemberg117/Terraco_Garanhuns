@@ -130,7 +130,6 @@
 
         nav.appendChild(ul);
         navegacao.appendChild(nav);
-
         containerPreto.appendChild(imagemHeader);
         containerPreto.appendChild(navegacao);
         header.appendChild(containerPreto);
@@ -139,13 +138,8 @@
     }
 function criarMain() {
     const main = document.createElement("main");
-
     const h1 = document.createElement("h1");
-    h1.textContent = "Últimos eventos";
-    main.appendChild(h1);
-
     const eventosList = document.createElement("ul");
-    eventosList.classList.add("eventos");
 
     const eventos = [
         {
@@ -158,32 +152,31 @@ function criarMain() {
             titulo: "Jonas Moura",
             descricao: "Prepare o coração e a bota porque o Esquenta Viva Garanhuns tá chegando com tudo!",
         }
-    ];
+    ]
+    h1.textContent = "Últimos eventos"
+    main.appendChild(h1)
+    eventosList.classList.add("eventos")
 
     eventos.forEach(function(evento) {
-        const li = document.createElement("li");
 
-        const img = document.createElement("img");
-        img.src = evento.imagem;
-        img.alt = "Imagem de um evento";
-        li.appendChild(img);
-
-        const div = document.createElement("div");
-
-        const h2 = document.createElement("h2");
-        h2.textContent = evento.titulo;
-        div.appendChild(h2);
-
-        const p = document.createElement("p");
-        p.textContent = evento.descricao;
-        div.appendChild(p);
-
-        li.appendChild(div);
-        eventosList.appendChild(li);
+        const li = document.createElement("li")
+        const img = document.createElement("img")
+        const div = document.createElement("div")
+        const h2 = document.createElement("h2")
+        const p = document.createElement("p")
+        img.src = evento.imagem
+        img.alt = "Imagem de um evento"
+        li.appendChild(img)
+        h2.textContent = evento.titulo
+        div.appendChild(h2)
+        p.textContent = evento.descricao
+        div.appendChild(p)
+        li.appendChild(div)
+        eventosList.appendChild(li)
     });
 
-    main.appendChild(eventosList);
-    document.body.appendChild(main);
+    main.appendChild(eventosList)
+    document.body.appendChild(main)
 }
     function criarFooter() {
 

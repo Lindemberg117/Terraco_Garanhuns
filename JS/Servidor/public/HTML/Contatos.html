@@ -147,61 +147,58 @@
 
 function criarMain() {
     const main = document.createElement("main");
-    main.classList.add("main-contatos");
-
-    const contatDiv = document.createElement("div");
-    contatDiv.classList.add("contat");
-
+    const divContato = document.createElement("div");
     const h2 = document.createElement("h2");
-    h2.textContent = "Atendimento ao Cliente";
-    contatDiv.appendChild(h2);
+
+    const divSocial = document.createElement("div");
+    const tituloSocial = document.createElement("h2");
 
     const contatos = [
         { imagem: "/IMG/Email.png", texto: "Email: atendimento@Terraço.com" },
         { imagem: "/IMG/Phone.png", texto: "Telefone: (11) 9 1234-5678 / (11) 9 8765-4321" },
         { imagem: "/IMG/House.png", texto: "Endereço: Av. Rui Barbosa, 1070 - Heliópolis, Garanhuns." }
     ];
-
-    contatos.forEach(function(contato) {
-        const p = document.createElement("p");
-        const img = document.createElement("img");
-        img.src = contato.imagem;
-        img.alt = contato.texto.split(":")[0];
-
-        p.appendChild(img);
-        p.appendChild(document.createTextNode(contato.texto));
-        contatDiv.appendChild(p);
-    });
-
-    const socialDiv = document.createElement("div");
-    socialDiv.classList.add("social-icons");
-
-    const socialTitle = document.createElement("h2");
-    socialTitle.textContent = "Nos siga nas redes sociais";
-    socialDiv.appendChild(socialTitle);
-
     const socialLinks = [
         { href: "https://m.facebook.com/terracoChopperia/", imgSrc: "/IMG/Facebook.png", alt: "Facebook" },
         { href: "https://www.instagram.com/terracogaranhuns", imgSrc: "/IMG/Instagram.png", alt: "Instagram" },
         { href: "https://api.whatsapp.com/send?phone=5587999984126", imgSrc: "/IMG/WhatsApp.png", alt: "WhatsApp" }
     ];
 
+    main.classList.add("main-contatos")
+    divContato.classList.add("contat")
+    h2.textContent = "Atendimento ao Cliente"
+    divContato.appendChild(h2)
+
+    divSocial.classList.add("social-icons")
+    tituloSocial.textContent = "Nos siga nas redes sociais"
+    divSocial.appendChild(tituloSocial)
+
+    contatos.forEach(function(contato) {
+        const p = document.createElement("p")
+        const img = document.createElement("img")
+        img.src = contato.imagem;
+        img.alt = contato.texto.split(":")[0]
+
+        p.appendChild(img)
+        p.appendChild(document.createTextNode(contato.texto))
+        divContato.appendChild(p)
+    });
     socialLinks.forEach(function(link){
-        const a = document.createElement("a");
-        a.href = link.href;
+        const a = document.createElement("a")
+        const img = document.createElement("img")
 
-        const img = document.createElement("img");
-        img.src = link.imgSrc;
-        img.alt = link.alt;
+        a.href = link.href
+        img.src = link.imgSrc
+        img.alt = link.alt
 
-        a.appendChild(img);
-        a.appendChild(document.createTextNode(link.alt));
-        socialDiv.appendChild(a);
+        a.appendChild(img)
+        a.appendChild(document.createTextNode(link.alt))
+        divSocial.appendChild(a)
     });
 
-    main.appendChild(contatDiv);
-    main.appendChild(socialDiv);
-    document.body.appendChild(main);
+    main.appendChild(divContato)
+    main.appendChild(divSocial)
+    document.body.appendChild(main)
 }
 
     function criarFooter() {

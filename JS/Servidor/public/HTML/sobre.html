@@ -151,48 +151,43 @@
         document.body.appendChild(header);
     }
     function criarMain() {
-        const main = document.createElement("main");
 
-        const section = document.createElement("section");
-        const nossaHistoria = document.createElement("div");
-        nossaHistoria.classList.add("nossa-historia");
-
-        const informacoes = document.createElement("div");
-        informacoes.classList.add("informacoes");
-
-        const imagem = document.createElement("div");
-        imagem.classList.add("imagem");
-        const imgHistoria = document.createElement("img");
-        imgHistoria.src = "/IMG/Terraco2.png";
-        imgHistoria.alt = "";
-        imagem.appendChild(imgHistoria);
-
-        const texto = document.createElement("div");
-        texto.classList.add("texto");
-
-        const h1 = document.createElement("h1");
-        h1.textContent = "Nossa História";
-        texto.appendChild(h1);
-
+        const main = document.createElement("main")
+        const section = document.createElement("section")
+        const nossaHistoria = document.createElement("div")
+        const informacoes = document.createElement("div")
+        const imagem = document.createElement("div")
+        const imgHistoria = document.createElement("img")
+        const texto = document.createElement("div")
+        const h1 = document.createElement("h1")
         const paragrafos = [
             "Fundada em 2002 por três amigos apaixonados por boa comida, cerveja gelada e encontros ao ar livre, a Churrascaria e Chopperia Terraço nasceu com a missão de oferecer uma experiência completa de sabor, conforto e convivência.",
             "Inspirado nos tradicionais churrascos de família e no clima descontraído dos bares brasileiros, o Terraço começou como um pequeno espaço com vista privilegiada para o pôr do sol - o que acabou inspirando o nome da casa. Com o tempo, o lugar se tornou um ponto de encontro favorito para moradores locais e turistas, graças ao seu ambiente acolhedor, música ao vivo nos finais de semana e uma seleção impecável de cortes nobres e choppes artesanais.",
             "O sucesso do Terraço sempre foi baseado em três pilares: qualidade nos ingredientes, atendimento com alma e paixão pela cultura do churrasco. Hoje, o Terraço continua evoluindo, sem nunca perder sua essência: ser um lugar onde cada visita é uma celebração."
-        ];
+        ]
 
+        nossaHistoria.classList.add("nossa-historia")
+        informacoes.classList.add("informacoes")
+        imagem.classList.add("imagem");
+        imgHistoria.src = "/IMG/Terraco2.png";
+        texto.classList.add("texto");
+        h1.textContent = "Nossa História";
+        
         paragrafos.forEach(function(textoParagrafo) {
             const p = document.createElement("p");
             p.textContent = textoParagrafo;
             texto.appendChild(p);
         });
 
-        informacoes.appendChild(imagem);
-        informacoes.appendChild(texto);
-        nossaHistoria.appendChild(informacoes);
-        section.appendChild(nossaHistoria);
+        texto.appendChild(h1)
+        imagem.appendChild(imgHistoria)
+        informacoes.appendChild(imagem)
+        informacoes.appendChild(texto)
+        nossaHistoria.appendChild(informacoes)
+        section.appendChild(nossaHistoria)
+        main.appendChild(section)
 
-        main.appendChild(section);
-        document.body.appendChild(main);
+        document.body.appendChild(main)
     }
 
     function criarFooter() {
