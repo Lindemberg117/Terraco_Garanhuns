@@ -129,7 +129,7 @@
       navegacao.classList.add("navegacao");
       nav.classList.add("nav");
       imagemHeader.classList.add("imagem-header");
-      imgHeader.src = "/IMG/Terraco.jpg";
+      imgHeader.src = "../IMG/Terraco.jpg";
       imgHeader.alt = "";
       imgHeader.id = "Terraco";
       imagemHeader.appendChild(imgHeader);
@@ -166,12 +166,14 @@
         "O sucesso do Terraço sempre foi baseado em três pilares: qualidade nos ingredientes, atendimento com alma e paixão pela cultura do churrasco. Hoje, o Terraço continua evoluindo, sem nunca perder sua essência: ser um lugar onde cada visita é uma celebração.",
       ];
 
+      h1.textContent = "Nossa História";
       nossaHistoria.classList.add("nossa-historia");
       informacoes.classList.add("informacoes");
       imagem.classList.add("imagem");
       imgHistoria.src = "../IMG/Terraco2.png";
       texto.classList.add("texto");
-      h1.textContent = "Nossa História";
+
+      texto.appendChild(h1);
 
       paragrafos.forEach(function (textoParagrafo) {
         const p = document.createElement("p");
@@ -179,7 +181,6 @@
         texto.appendChild(p);
       });
 
-      texto.appendChild(h1);
       imagem.appendChild(imgHistoria);
       informacoes.appendChild(imagem);
       informacoes.appendChild(texto);
