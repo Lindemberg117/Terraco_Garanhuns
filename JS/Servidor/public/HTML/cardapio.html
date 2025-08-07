@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,22 +17,25 @@
             background: white;
             padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             width: 250px;
         }
+
         .carrinho-item {
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
             font-size: 14px;
         }
+
         .carrinho-total {
             font-weight: bold;
             margin-top: 10px;
             border-top: 1px solid #eee;
             padding-top: 10px;
         }
+
         .btn-finalizar {
             background: #4CAF50;
             color: white;
@@ -42,19 +46,33 @@
             margin-top: 10px;
             width: 100%;
         }
+
+        .cliente-id {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
+
 <body>
     <script>
         let pedidos = [];
-        
+        let clienteId = gerarIdCliente(); // Gera um ID único para o cliente
+
         window.addEventListener("load", main);
-        
+
         function main() {
             criarHeader();
             criarMain();
             criarFooter();
             atualizarCarrinho();
+        }
+
+        // Função para gerar um ID único para o cliente
+        function gerarIdCliente() {
+            // Combina timestamp com um número aleatório para criar um ID único
+            return 'cli-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
         }
 
         function criarHeader() {
@@ -65,15 +83,29 @@
             const navegacao = document.createElement("div");
             const nav = document.createElement("nav");
             const ul = document.createElement("ul");
-            const links = [
-                { texto: "Home", href: "/index.html" },
-                { texto: "Sobre nós", href: "/HTML/sobre.html" },
-                { texto: "Cardápio", href: "/HTML/cardapio.html" },
-                { texto: "Eventos", href: "/HTML/eventos.html" },
-                { texto: "Contatos", href: "/HTML/Contatos.html" },
+            const links = [{
+                    texto: "Home",
+                    href: "/index.html"
+                },
+                {
+                    texto: "Sobre nós",
+                    href: "/HTML/sobre.html"
+                },
+                {
+                    texto: "Cardápio",
+                    href: "/HTML/cardapio.html"
+                },
+                {
+                    texto: "Eventos",
+                    href: "/HTML/eventos.html"
+                },
+                {
+                    texto: "Contatos",
+                    href: "/HTML/Contatos.html"
+                },
                 // { texto: "Pedidos", href: "/HTML/Pedidos.html" }
             ];
-            
+
             containerPreto.classList.add("container-preto");
             navegacao.classList.add("navegacao");
             nav.classList.add("nav");
@@ -82,8 +114,8 @@
             imgHeader.alt = "Restaurante Terraço";
             imgHeader.id = "Terraco";
             imagemHeader.appendChild(imgHeader);
-            
-            links.forEach(function(link) {
+
+            links.forEach(function (link) {
                 const li = document.createElement("li");
                 const a = document.createElement("a");
                 a.href = link.href;
@@ -105,8 +137,7 @@
             const ul = document.createElement("ul");
             ul.classList.add("comidas");
 
-            const itensCardapio = [
-                {
+            const itensCardapio = [{
                     id: 1,
                     nome: "Tripa",
                     imagem: "/IMG/Tripa.png",
@@ -189,10 +220,10 @@
             const id = parseInt(button.getAttribute('data-id'));
             const nome = button.getAttribute('data-nome');
             const preco = parseFloat(button.getAttribute('data-preco'));
-            
+
             // Verifica se o item já está no carrinho
             const itemExistente = pedidos.find(item => item.id === id);
-            
+
             if (itemExistente) {
                 itemExistente.quantidade += 1;
             } else {
@@ -203,30 +234,33 @@
                     quantidade: 1
                 });
             }
-            
+
             atualizarCarrinho();
         }
 
         function atualizarCarrinho() {
             let carrinho = document.querySelector('.carrinho-flutuante');
-            
+
             if (!carrinho) {
                 carrinho = document.createElement('div');
                 carrinho.classList.add('carrinho-flutuante');
                 document.body.appendChild(carrinho);
             }
-            
-            let html = '<h3>Seu Pedido</h3>';
-            
+
+            let html = `
+                <h3>Seu Pedido</h3>
+                <div class="cliente-id">ID do Cliente: ${clienteId}</div>
+            `;
+
             if (pedidos.length === 0) {
                 html += '<p>Carrinho vazio</p>';
             } else {
                 let total = 0;
-                
+
                 pedidos.forEach(item => {
                     const subtotal = item.preco * item.quantidade;
                     total += subtotal;
-                    
+
                     html += `
                         <div class="carrinho-item">
                             <span>${item.nome} x${item.quantidade}</span>
@@ -234,7 +268,7 @@
                         </div>
                     `;
                 });
-                
+
                 html += `
                     <div class="carrinho-total">
                         <span>Total:</span>
@@ -243,9 +277,9 @@
                     <button class="btn-finalizar">Finalizar Pedido</button>
                 `;
             }
-            
+
             carrinho.innerHTML = html;
-            
+
             // Adiciona evento ao botão de finalizar
             const finalizarBtn = carrinho.querySelector('.btn-finalizar');
             if (finalizarBtn) {
@@ -253,16 +287,41 @@
             }
         }
 
-        function finalizarPedido() {
+        async function finalizarPedido() {
             if (pedidos.length === 0) {
                 alert("Adicione itens ao carrinho antes de finalizar!");
                 return;
             }
-            
-            // Aqui você pode implementar a lógica para enviar os pedidos ao servidor
-            alert("Pedido finalizado com sucesso!");
-            pedidos = [];
-            atualizarCarrinho();
+
+            try {
+                const total = pedidos.reduce((sum, item) => sum + (item.preco * item.quantidade), 0);
+
+                const response = await fetch('http://localhost:8080/pedidos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        clienteId: clienteId,
+                        itens: pedidos,
+                        total: total
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Erro ao finalizar pedido');
+                }
+
+                alert(`Pedido #${data.pedidoId} finalizado com sucesso!\nTotal: R$ ${total.toFixed(2)}`);
+                pedidos = [];
+                atualizarCarrinho();
+
+            } catch (error) {
+                console.error('Erro ao finalizar pedido:', error);
+                alert(`Erro: ${error.message}`);
+            }
         }
 
         function criarFooter() {
@@ -291,4 +350,5 @@
         }
     </script>
 </body>
+
 </html>

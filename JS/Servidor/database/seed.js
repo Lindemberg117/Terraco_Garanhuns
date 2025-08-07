@@ -1,6 +1,6 @@
-import { dbPromise  } from "./db.js";
-
-let cardapio =[
+import { dbPromise } from './db.js';  
+// Dados iniciais do cardápio
+const cardapio =[
     {
     nome:"tripa",
     descricao:"Tripa acebolada, crocante por fora e suculenta por dentro. Ideal para petiscar com os amigos! ",
@@ -50,25 +50,24 @@ let cardapio =[
     img:'../IMG/Vinho.png'
 
     }
-]
+];
 
+// Popula o banco de dados
 async function popularBanco() {
-    const db = await dbPromise
-
-    for (let x = 0; x < cardapio.length; x++) {
-        await db.run(
-            `
-                INSERT INTO cardapio (nome,descricao, preco,img) VALUES (?,?,?,?)
-            `, 
-            [
-                cardapio[x].nome,
-                cardapio[x].descricao,
-                cardapio[x].preco,
-                cardapio[x].img
-            ]
-        )
+    try {
+        const db = await dbPromise;
+        await db.run("DELETE FROM cardapio");
+        
+        for (const item of cardapio) {
+            await db.run(
+                "INSERT INTO cardapio (nome, descricao, preco, img) VALUES (?, ?, ?, ?)",
+                [item.nome, item.descricao, item.preco, item.img]
+            );
+        }
+        console.log('Banco populado com sucesso!');
+    } catch (error) {
+        console.error('Erro ao popular banco:', error);
     }
 }
 
-popularBanco()
-
+popularBanco();
