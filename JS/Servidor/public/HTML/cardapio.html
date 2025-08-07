@@ -1,170 +1,178 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/globals.css">
-    <link rel="stylesheet" href="/CSS/header.css">
-    <link rel="stylesheet" href="/CSS/footer.css">
-    <link rel="stylesheet" href="/CSS/cardapio.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/globals.css" />
+    <link rel="stylesheet" href="/CSS/header.css" />
+    <link rel="stylesheet" href="/CSS/footer.css" />
+    <link rel="stylesheet" href="/CSS/cardapio.css" />
     <title>Cardápio - Terraço Garanhuns</title>
     <style>
-        .carrinho-flutuante {
-            position: fixed;
-            top: 120px;
-            right: 20px;
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-            width: 250px;
-        }
-        .carrinho-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-        .carrinho-total {
-            font-weight: bold;
-            margin-top: 10px;
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-        }
-        .btn-finalizar {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-            width: 100%;
-        }
+      .carrinho-flutuante {
+        position: fixed;
+        top: 120px;
+        right: 20px;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        width: 250px;
+      }
+      .carrinho-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+      .carrinho-total {
+        font-weight: bold;
+        margin-top: 10px;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+      }
+      .btn-finalizar {
+        background: #4caf50;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let pedidos = [];
-        
-        window.addEventListener("load", main);
-        
-        function main() {
-            criarHeader();
-            criarMain();
-            criarFooter();
-            atualizarCarrinho();
-        }
+      let pedidos = [];
 
-        function criarHeader() {
-            const header = document.createElement("header");
-            const containerPreto = document.createElement("div");
-            const imagemHeader = document.createElement("div");
-            const imgHeader = document.createElement("img");
-            const navegacao = document.createElement("div");
-            const nav = document.createElement("nav");
-            const ul = document.createElement("ul");
-            const links = [
-                { texto: "Home", href: "/index.html" },
-                { texto: "Sobre nós", href: "/HTML/sobre.html" },
-                { texto: "Cardápio", href: "/HTML/cardapio.html" },
-                { texto: "Eventos", href: "/HTML/eventos.html" },
-                { texto: "Contatos", href: "/HTML/Contatos.html" },
-                // { texto: "Pedidos", href: "/HTML/Pedidos.html" }
-            ];
-            
-            containerPreto.classList.add("container-preto");
-            navegacao.classList.add("navegacao");
-            nav.classList.add("nav");
-            imagemHeader.classList.add("imagem-header");
-            imgHeader.src = "/IMG/Terraco.jpg";
-            imgHeader.alt = "Restaurante Terraço";
-            imgHeader.id = "Terraco";
-            imagemHeader.appendChild(imgHeader);
-            
-            links.forEach(function(link) {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = link.href;
-                a.textContent = link.texto;
-                li.appendChild(a);
-                ul.appendChild(li);
-            });
+      window.addEventListener("load", main);
 
-            nav.appendChild(ul);
-            navegacao.appendChild(nav);
-            containerPreto.appendChild(imagemHeader);
-            containerPreto.appendChild(navegacao);
-            header.appendChild(containerPreto);
-            document.body.appendChild(header);
-        }
+      function main() {
+        criarHeader();
+        criarMain();
+        criarFooter();
+        atualizarCarrinho();
+      }
 
-        function criarMain() {
-            const main = document.createElement("main");
-            const ul = document.createElement("ul");
-            ul.classList.add("comidas");
+      function criarHeader() {
+        const header = document.createElement("header");
+        const containerPreto = document.createElement("div");
+        const imagemHeader = document.createElement("div");
+        const imgHeader = document.createElement("img");
+        const navegacao = document.createElement("div");
+        const nav = document.createElement("nav");
+        const ul = document.createElement("ul");
+        const links = [
+          { texto: "Home", href: "/index.html" },
+          { texto: "Sobre nós", href: "/HTML/sobre.html" },
+          { texto: "Cardápio", href: "/HTML/cardapio.html" },
+          { texto: "Eventos", href: "/HTML/eventos.html" },
+          { texto: "Contatos", href: "/HTML/Contatos.html" },
+        ];
 
-            const itensCardapio = [
-                {
-                    id: 1,
-                    nome: "Tripa",
-                    imagem: "/IMG/Tripa.png",
-                    descricao: "Tripa acebolada, crocante por fora e suculenta por dentro. Ideal para petiscar com os amigos!",
-                    preco: 25.00
-                },
-                {
-                    id: 2,
-                    nome: "Sushi",
-                    imagem: "/IMG/Sushi.png",
-                    descricao: "Seleção de sushis frescos preparados com ingredientes de qualidade e sabor oriental autêntico.",
-                    preco: 39.90
-                },
-                {
-                    id: 3,
-                    nome: "Camarão",
-                    imagem: "/IMG/Camarao.png",
-                    descricao: "Camarões grelhados temperados com ervas finas. Um toque do mar no seu prato!",
-                    preco: 49.00
-                },
-                {
-                    id: 4,
-                    nome: "Carnes",
-                    imagem: "/IMG/Carnes.png",
-                    descricao: "Variedade de cortes nobres como picanha, alcatra e fraldinha, preparados na brasa com todo o sabor do churrasco tradicional.",
-                    preco: 59.90
-                },
-                {
-                    id: 5,
-                    nome: "Chopp",
-                    imagem: "/IMG/Chopp.png",
-                    descricao: "Chopp gelado, cremoso e servido na medida para refrescar seus momentos!",
-                    preco: 9.90
-                },
-                {
-                    id: 6,
-                    nome: "Drinks",
-                    imagem: "/IMG/Mojito.png",
-                    descricao: "Drinks refrescantes e bem elaborados com frutas, hortelã e um toque especial!",
-                    preco: 19.90
-                },
-                {
-                    id: 7,
-                    nome: "Vinho",
-                    imagem: "/IMG/Vinho.png",
-                    descricao: "Vinhos selecionados para harmonizar com bons momentos. Tintos, brancos ou rosés — escolha o seu preferido!",
-                    preco: 69.90
-                }
-            ];
+        containerPreto.classList.add("container-preto");
+        navegacao.classList.add("navegacao");
+        nav.classList.add("nav");
+        imagemHeader.classList.add("imagem-header");
+        imgHeader.src = "/IMG/Terraco.jpg";
+        imgHeader.alt = "Restaurante Terraço";
+        imgHeader.id = "Terraco";
+        imagemHeader.appendChild(imgHeader);
 
-            itensCardapio.forEach(item => {
-                const li = document.createElement("li");
-                li.classList.add("comida");
-                li.innerHTML = `
+        links.forEach(function (link) {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = link.href;
+          a.textContent = link.texto;
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+
+        nav.appendChild(ul);
+        navegacao.appendChild(nav);
+        containerPreto.appendChild(imagemHeader);
+        containerPreto.appendChild(navegacao);
+        header.appendChild(containerPreto);
+        document.body.appendChild(header);
+      }
+
+      function criarMain() {
+        const main = document.createElement("main");
+        const ul = document.createElement("ul");
+        ul.classList.add("comidas");
+
+        const itensCardapio = [
+          {
+            id: 1,
+            nome: "Tripa",
+            imagem: "/IMG/Tripa.png",
+            descricao:
+              "Tripa acebolada, crocante por fora e suculenta por dentro. Ideal para petiscar com os amigos!",
+            preco: 25.0,
+          },
+          {
+            id: 2,
+            nome: "Sushi",
+            imagem: "/IMG/Sushi.png",
+            descricao:
+              "Seleção de sushis frescos preparados com ingredientes de qualidade e sabor oriental autêntico.",
+            preco: 39.9,
+          },
+          {
+            id: 3,
+            nome: "Camarão",
+            imagem: "/IMG/Camarao.png",
+            descricao:
+              "Camarões grelhados temperados com ervas finas. Um toque do mar no seu prato!",
+            preco: 49.0,
+          },
+          {
+            id: 4,
+            nome: "Carnes",
+            imagem: "/IMG/Carnes.png",
+            descricao:
+              "Variedade de cortes nobres como picanha, alcatra e fraldinha, preparados na brasa com todo o sabor do churrasco tradicional.",
+            preco: 59.9,
+          },
+          {
+            id: 5,
+            nome: "Chopp",
+            imagem: "/IMG/Chopp.png",
+            descricao:
+              "Chopp gelado, cremoso e servido na medida para refrescar seus momentos!",
+            preco: 9.9,
+          },
+          {
+            id: 6,
+            nome: "Drinks",
+            imagem: "/IMG/Mojito.png",
+            descricao:
+              "Drinks refrescantes e bem elaborados com frutas, hortelã e um toque especial!",
+            preco: 19.9,
+          },
+          {
+            id: 7,
+            nome: "Vinho",
+            imagem: "/IMG/Vinho.png",
+            descricao:
+              "Vinhos selecionados para harmonizar com bons momentos. Tintos, brancos ou rosés — escolha o seu preferido!",
+            preco: 69.9,
+          },
+        ];
+
+        itensCardapio.forEach((item) => {
+          const li = document.createElement("li");
+          li.classList.add("comida");
+          li.innerHTML = `
                     <img src="${item.imagem}" alt="Imagem de ${item.nome}">
                     <h2>${item.nome}</h2>
                     <p>${item.descricao}</p>
-                    <p class="preco">R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
+                    <p class="preco">R$ ${item.preco
+                      .toFixed(2)
+                      .replace(".", ",")}</p>
                     <button class="botao-adicionar" 
                             data-id="${item.id}" 
                             data-nome="${item.nome}" 
@@ -172,102 +180,100 @@
                         Adicionar aos pedidos
                     </button>
                 `;
-                ul.appendChild(li);
-            });
+          ul.appendChild(li);
+        });
 
-            main.appendChild(ul);
-            document.body.appendChild(main);
+        main.appendChild(ul);
+        document.body.appendChild(main);
 
-            // Adiciona eventos aos botões
-            document.querySelectorAll('.botao-adicionar').forEach(button => {
-                button.addEventListener('click', adicionarAoCarrinho);
-            });
+        document.querySelectorAll(".botao-adicionar").forEach((button) => {
+          button.addEventListener("click", adicionarAoCarrinho);
+        });
+      }
+
+      function adicionarAoCarrinho(event) {
+        const button = event.target;
+        const id = parseInt(button.getAttribute("data-id"));
+        const nome = button.getAttribute("data-nome");
+        const preco = parseFloat(button.getAttribute("data-preco"));
+
+        const itemExistente = pedidos.find((item) => item.id === id);
+
+        if (itemExistente) {
+          itemExistente.quantidade += 1;
+        } else {
+          pedidos.push({
+            id,
+            nome,
+            preco,
+            quantidade: 1,
+          });
         }
 
-        function adicionarAoCarrinho(event) {
-            const button = event.target;
-            const id = parseInt(button.getAttribute('data-id'));
-            const nome = button.getAttribute('data-nome');
-            const preco = parseFloat(button.getAttribute('data-preco'));
-            
-            // Verifica se o item já está no carrinho
-            const itemExistente = pedidos.find(item => item.id === id);
-            
-            if (itemExistente) {
-                itemExistente.quantidade += 1;
-            } else {
-                pedidos.push({
-                    id,
-                    nome,
-                    preco,
-                    quantidade: 1
-                });
-            }
-            
-            atualizarCarrinho();
+        atualizarCarrinho();
+      }
+
+      function atualizarCarrinho() {
+        let carrinho = document.querySelector(".carrinho-flutuante");
+
+        if (!carrinho) {
+          carrinho = document.createElement("div");
+          carrinho.classList.add("carrinho-flutuante");
+          document.body.appendChild(carrinho);
         }
 
-        function atualizarCarrinho() {
-            let carrinho = document.querySelector('.carrinho-flutuante');
-            
-            if (!carrinho) {
-                carrinho = document.createElement('div');
-                carrinho.classList.add('carrinho-flutuante');
-                document.body.appendChild(carrinho);
-            }
-            
-            let html = '<h3>Seu Pedido</h3>';
-            
-            if (pedidos.length === 0) {
-                html += '<p>Carrinho vazio</p>';
-            } else {
-                let total = 0;
-                
-                pedidos.forEach(item => {
-                    const subtotal = item.preco * item.quantidade;
-                    total += subtotal;
-                    
-                    html += `
+        let html = "<h3>Seu Pedido</h3>";
+
+        if (pedidos.length === 0) {
+          html += "<p>Carrinho vazio</p>";
+        } else {
+          let total = 0;
+
+          pedidos.forEach((item) => {
+            const subtotal = item.preco * item.quantidade;
+            total += subtotal;
+
+            html += `
                         <div class="carrinho-item">
                             <span>${item.nome} x${item.quantidade}</span>
-                            <span>R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
+                            <span>R$ ${subtotal
+                              .toFixed(2)
+                              .replace(".", ",")}</span>
                         </div>
                     `;
-                });
-                
-                html += `
+          });
+
+          html += `
                     <div class="carrinho-total">
                         <span>Total:</span>
-                        <span>R$ ${total.toFixed(2).replace('.', ',')}</span>
+                        <span>R$ ${total.toFixed(2).replace(".", ",")}</span>
                     </div>
                     <button class="btn-finalizar">Finalizar Pedido</button>
                 `;
-            }
-            
-            carrinho.innerHTML = html;
-            
-            // Adiciona evento ao botão de finalizar
-            const finalizarBtn = carrinho.querySelector('.btn-finalizar');
-            if (finalizarBtn) {
-                finalizarBtn.addEventListener('click', finalizarPedido);
-            }
         }
 
-        function finalizarPedido() {
-            if (pedidos.length === 0) {
-                alert("Adicione itens ao carrinho antes de finalizar!");
-                return;
-            }
-            
-            // Aqui você pode implementar a lógica para enviar os pedidos ao servidor
-            alert("Pedido finalizado com sucesso!");
-            pedidos = [];
-            atualizarCarrinho();
+        carrinho.innerHTML = html;
+
+        const finalizarBtn = carrinho.querySelector(".btn-finalizar");
+        if (finalizarBtn) {
+          finalizarBtn.addEventListener("click", finalizarPedido);
+        }
+      }
+
+      function finalizarPedido() {
+        if (pedidos.length === 0) {
+          alert("Adicione itens ao carrinho antes de finalizar!");
+          return;
         }
 
-        function criarFooter() {
-            const footer = document.createElement("footer");
-            footer.innerHTML = `
+        alert("Pedido finalizado com sucesso!");
+        pedidos = [];
+        atualizarCarrinho();
+      }
+
+      function criarFooter() {
+        const footer = document.createElement("footer");
+        footer.innerHTML = `
                 <div class="secoes">
                     <section class="informacoes">
                         <div class="info2">
@@ -287,8 +293,8 @@
                     </section>
                 </div>
             `;
-            document.body.appendChild(footer);
-        }
+        document.body.appendChild(footer);
+      }
     </script>
-</body>
+  </body>
 </html>
